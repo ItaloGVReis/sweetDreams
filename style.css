@@ -1,0 +1,95 @@
+body{
+    margin: 0 auto;
+}
+
+.head{
+    display: flex;
+    justify-content: space-between;
+    background-color: red;
+    padding: 7px 20px;
+    width: 97%;
+    height: 70px;
+    align-items: center;
+
+
+}
+.logo h1{
+    width: 100%;
+    font-size: 50px;
+}
+.simbolos{
+    display: flex;
+    gap: 20px;
+
+}
+.hbutao{
+    width: 40px;
+    height: 40px;
+    background-color: black;
+}
+.ilustra{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 530px;
+    width: 100%;
+}
+
+.cacete{
+    margin-left: 120px;
+    height: 450px;
+    width: 400px;
+    background-color: brown;
+}
+
+.mascote{
+    margin-right: 120px;
+    height: 450px;
+    width: 500px;
+    background-color:aqua;
+    position: relative;
+
+
+}
+.fita{
+    height: 150px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.fitao{
+    height: 120px;
+    width: 77%;
+    background-color: black;
+}
+
+.cardapio{
+    height: 400px;
+    width: 100%;
+    display: flex;
+    gap: 40px;
+}
+.card{
+    margin-left: 50px;
+    height: 350px;
+    width: 600px;
+    background-color: blue;
+}
+
+.fotinha{
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+}
+
+.photo{
+    height: 150px;
+    width: 150px;
+    background-color: orange;
+}
+.jeito{
+    height: 350px;
+    width: 600px;
+    gap: 30px;
+}
