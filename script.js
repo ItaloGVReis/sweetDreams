@@ -5,7 +5,7 @@ document.getElementById("verMais").addEventListener("click", function() {
     if (button.innerText === "Ver Mais") {
         // Mostra as divs comidasum com efeito
         comidasumElements.forEach(function(element) {
-            element.style.display = "block"; // Primeiro, garantir que estejam no layout
+            element.style.display = "flex"; // Primeiro, garantir que estejam no layout
             setTimeout(function() {
                 element.classList.add("show"); // Depois, aplicar a classe de transição
             }, 10); // Pequeno delay para acionar a transição
