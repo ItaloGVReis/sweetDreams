@@ -32,8 +32,6 @@ def test_db():
     cursor.close()
     return f'A solução é: {result[0]}'
 
-
-
 if __name__ == "__main__":
     app.run(debug=True)
 
