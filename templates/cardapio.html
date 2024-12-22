@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
     <title>Document</title>
 </head>
 <body>
@@ -16,25 +17,41 @@
             <input type="text" placeholder="Buscar...">
         </div>
 
-        <div class="user-actions">👤 🛒</div>
+        <div class="simbolos">
+            <img src="/static/imagens/logo.PNG" alt="icone" class="hbutao">
+        </div>
     </header>
     
     <main class="meio">
         <!-- Product Display -->
         <section class="product-display">
-            <img src="https://via.placeholder.com/300" alt="Produto principal">
+            <div class="imagens-c">
+                <img src="https://via.placeholder.com/328" alt="Produto principal" class="maior">
+                <div class="rapaiz">
+                    <img src="https://via.placeholder.com/100" alt="foto1" class="menores">
+                    <img src="https://via.placeholder.com/100" alt="foto2" class="menores">
+                    <img src="https://via.placeholder.com/100" alt="foto3" class="menores">
+                </div>
+            </div>
+
             <div class="product-details">
-                <h1>Nome do Produto</h1>
+                <div class="bruh">
+                    <h1>Nome do produto</h1>
+                    <img src="/static/imagens/pausa.png" alt="pausa dnv" class="ah">
+                </div>
                 <p class="description">Descrição breve do produto aqui.</p>
                 <p class="price">R$ XX,XX</p>
                 <button>Compre Agora</button>
     
                 <div class="add-ons">
-                    <h3>Adicionais</h3>
-                    <button>R$ XX,XX</button>
-                    <button>R$ XX,XX</button>
+                    <div class="adicionar"></div>
+                    <div class="bot">
+                        <button>R$ XX,XX</button>
+                        <button>R$ XX,XX</button>
+                    </div>
                 </div>
             </div>
+            <div class="mascote"></div>
         </section>
     
         <!-- Reviews -->
@@ -46,18 +63,25 @@
             <div class="review-item">
                 <p><strong>Usuário 2:</strong> Muito bom! ⭐⭐⭐⭐⭐</p>
             </div>
+            <div class="review-item">
+                <p><strong>Usuário 3:</strong> Muito ruim! ⭐</p>
+            </div>
+            <button class="add-review-btn">Adicionar Avaliação</button>
         </section>
     
         <!-- Suggestions -->
         <section class="suggestions">
             <h2>Sugestões</h2>
-            <div class="suggestion-item">
-                <img src="https://via.placeholder.com/100" alt="Sugestão 1">
-                <p>Produto relacionado 1 - R$ XX,XX</p>
-            </div>
-            <div class="suggestion-item">
-                <img src="https://via.placeholder.com/100" alt="Sugestão 2">
-                <p>Produto relacionado 2 - R$ XX,XX</p>
+            <div class="carousel">
+                <img src="https://via.placeholder.com/150" alt="Sugestão 1">
+                <img src="https://via.placeholder.com/150" alt="Sugestão 2">
+                <img src="https://via.placeholder.com/150" alt="Sugestão 3">
+                <img src="https://via.placeholder.com/150" alt="Sugestão 4">
+                <img src="https://via.placeholder.com/150" alt="Sugestão 5">
+                <img src="https://via.placeholder.com/150" alt="Sugestão 6">
+                <img src="https://via.placeholder.com/150" alt="Sugestão 7">
+
+
             </div>
         </section>
     </main>
@@ -79,4 +103,5 @@
     </footer>
     
     </body>
+    <script src="/static/script.js"></script>
 </html>

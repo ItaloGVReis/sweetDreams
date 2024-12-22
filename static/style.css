@@ -42,6 +42,7 @@ body{
     height: 450px;
     width: 400px;
     background-color: brown;
+    flex-shrink: 0;
 }
 
 .mascote{
@@ -50,6 +51,7 @@ body{
     width: 500px;
     background-color:aqua;
     position: relative;
+    flex-shrink: 0;
 
 
 }
@@ -236,12 +238,46 @@ header input {
 }
 .product-display {
     display: flex;
-    gap: 20px;
+    gap: 70px;
 }
-.product-display img {
-    width: 300px;
+.maior{
+    width: 328px;
     height: auto;
     border: 2px solid #ccc;
+}
+.menores{
+    width: 100px;
+    height: auto;
+    border: 2px solid #ccc;
+}
+.rapaiz{
+    display: flex;
+    gap: 10px;
+}
+.imagens-c{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+.bruh{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    height: 50px;
+    width:max-content;
+    background-color: gray;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 4px;
+}
+.bruh h1{
+    width: auto;
+    margin: 0 auto;
+}
+.ah{
+    height: 28px;
+    width: auto;
 }
 .product-details {
     flex: 1;
@@ -255,8 +291,19 @@ header input {
 }
 .add-ons {
     margin-top: 20px;
+    display: flex;
 }
-.add-ons button {
+.adicionar{
+    height: 170px;
+    width: 170px;
+    background-color: #5cb85c;
+}
+.bot{
+    display: flex;
+    flex-direction: column;
+    justify-content:end;
+}
+.bot button {
     margin: 5px;
     padding: 10px;
     background-color: #5cb85c;
@@ -264,6 +311,7 @@ header input {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    width:max-content;
 }
 .reviews, .suggestions {
     margin-top: 30px;
@@ -278,6 +326,31 @@ header input {
     padding: 10px;
     margin: 10px 0;
     background-color: #fff;
+}
+.add-review-btn {
+    display: block;
+    margin: 20px 0 0 auto;
+    padding: 10px 20px;
+    background-color: #0275d8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+}
+.carousel img {
+    width: 150px;
+    height: auto;
+    margin: 0 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+.carousel::-webkit-scrollbar {
+    display: none;
 }
 
 @media (max-width: 600px) {
