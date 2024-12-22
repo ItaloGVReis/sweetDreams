@@ -1,67 +1,51 @@
-document.getElementById("verMais").addEventListener("click", function() {
-    var button = document.getElementById("verMais");
-    var comidasumElements = document.querySelectorAll(".comidasum");
-    var comidasElements = document.querySelectorAll(".comidasum");
-    const filterButtons = document.querySelectorAll('.tipos');
-    const comidas = document.querySelectorAll('.comidas, .comidasum');
-    const verMaisButton = document.getElementById("verMais");
-    let activeFilter = '';
+document.addEventListener("DOMContentLoaded", () => {
+    const buttons = document.querySelectorAll(".tipos");
+    const items = document.querySelectorAll(".comidasum");
+    let activeFilter = null; // Para rastrear o filtro ativo
 
-    if (button.innerText === "Ver Mais") {
-        // Mostra as divs comidasum com efeito
-        comidasumElements.forEach(function(element) {
-            element.style.display = "flex"; // Primeiro, garantir que estejam no layout
-            setTimeout(function() {
-                element.classList.add("show"); // Depois, aplicar a classe de transição
-            }, 10); // Pequeno delay para acionar a transição
-        });
-        // Altera o texto do botão
-        button.innerText = "Ver Menos";
-        // Move o botão para o final da div quadrado
-        document.querySelector(".quadrado").appendChild(button);
-    } else {
-        // Oculta as divs comidasum com efeito
-        comidasumElements.forEach(function(element) {
-            element.classList.remove("show");
-            setTimeout(function() {
-                element.style.display = "none"; // Ocultar após a transição
-            }, 500); // Tempo para a transição terminar
-        });
-        // Altera o texto do botão
-        button.innerText = "Ver Mais";
-    }
+    buttons.forEach(button => {
+        button.addEventListener("click", () => {
+            const filter = button.getAttribute("data-filter");
 
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function () {
-            const filter = this.getAttribute('data-filter');
-            const filteredComidas = document.querySelectorAll(`.comidas.${filter}, .comidasum.${filter}`);
-
+            // Alternar o filtro ativo
             if (activeFilter === filter) {
-                // Desfiltrar e voltar ao normal
-                comidas.forEach(comida => {
-                    comida.style.display = "flex";
-                    comida.classList.remove('show');
-                });
-                activeFilter = '';
-                verMaisButton.style.display = "none";
-                verMaisButton.innerText = "Ver Menos";
+                activeFilter = null; // Remover o filtro
+                showAllItems(); // Mostrar todos os itens
             } else {
-                // Filtrar por categoria
-                comidas.forEach(comida => {
-                    comida.style.display = "none";
-                    comida.classList.remove('show');
-                });
-                filteredComidas.forEach(comida => {
-                    comida.style.display = "flex";
-                    setTimeout(function() {
-                        comida.classList.add("show");
-                    }, 10);
-                });
-                activeFilter = filter;
-
+                activeFilter = filter; // Atualizar o filtro ativo
+                filterItems(filter); // Filtrar itens
             }
         });
     });
-});
 
+    function filterItems(filter) {
+        items.forEach(item => {
+            if (item.classList.contains(filter)) {
+                fadeIn(item);
+            } else {
+                fadeOut(item);
+            }
+        });
+    }
+
+    function showAllItems() {
+        items.forEach(item => fadeIn(item));
+    }
+
+    function fadeOut(element) {
+        element.style.transition = "opacity 0.5s ease";
+        element.style.opacity = "0";
+        setTimeout(() => {
+            element.style.display = "none";
+        }, 500);
+    }
+
+    function fadeIn(element) {
+        element.style.display = "flex";
+        setTimeout(() => {
+            element.style.transition = "opacity 0.5s ease";
+            element.style.opacity = "1";
+        }, 0);
+    }
+});
 

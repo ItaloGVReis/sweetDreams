@@ -32,8 +32,17 @@ def test_db():
     cursor.close()
     return f'A solução é: {result[0]}'
 
+@app.route('/cardapio')
+def cardapio():
+    # cursor = mysql.connection.cursor()
+    # cursor.execute('SELECT nome FROM pratos')  # Suponha que "pratos" é uma tabela
+    # pratos = cursor.fetchall()
+    # cursor.close()
+    return render_template('cardapio.html')#, pratos=pratos)
+
+
 if __name__ == "__main__":
     app.run(debug=True)
-"sera que vai?"
+
     
 
