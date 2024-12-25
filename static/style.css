@@ -353,6 +353,22 @@ header input {
     display: none;
 }
 
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+table, th, td {
+    border: 1px solid #ddd;
+}
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+form {
+    margin-top: 20px;
+}
+
 @media (max-width: 600px) {
     .footer-content {
         flex-direction: column;

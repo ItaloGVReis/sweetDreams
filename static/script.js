@@ -49,3 +49,92 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+
+const form = document.getElementById('product-form');
+const productList = document.getElementById('product-list');
+
+// Carregar produtos
+function loadProducts() {
+    fetch('/api/products')
+        .then(response => response.json())
+        .then(data => {
+            productList.innerHTML = '';
+            data.forEach(product => {
+                productList.innerHTML += `
+                    <tr>
+                        <td>${product[0]}</td>
+                        <td>${product[1]}</td>
+                        <td>${product[2]}</td>
+                        <td>R$ ${product[3]}</td>
+                        <td><img src="${product[4]}" alt="Imagem" width="50"></td>
+                        <td><img src="${product[5]}" alt="Imagem2" width="50"></td>
+                        <td><img src="${product[6]}" alt="Imagem3" width="50"></td>
+                        <td><img src="${product[7]}" alt="Imagem4" width="50"></td>
+                        <td>${product[8]}</td>
+                        <td>${product[9]}</td>
+                        <td>
+                            <button onclick="editProduct(${product[0]}, '${product[1]}', '${product[2]}', ${product[3]}, '${product[4]}', '${product[5]}', '${product[6]}', '${product[7]}', '${product[8]}', '${product[9]}' )">Editar</button>
+                            <button onclick="deleteProduct(${product[0]})">Deletar</button>
+                        </td>
+                    </tr>
+                `;
+            });
+        });
+}
+
+// Adicionar/Atualizar produto
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const id = document.getElementById('product-id').value;
+    const method = id ? 'PUT' : 'POST';
+    const url = id ? `/api/products/${id}` : '/api/products';
+    const productData = {
+        nome: document.getElementById('nome').value,
+        descricao: document.getElementById('descricao').value,
+        preco: parseFloat(document.getElementById('preco').value),
+        image_url: document.getElementById('image_url').value,
+        image_url2: document.getElementById('image_url2').value,
+        image_url3: document.getElementById('image_url3').value,
+        image_url4: document.getElementById('image_url4').value,
+        adicional: document.getElementById('adicional').value,
+        adicional2: document.getElementById('adicional2').value
+        
+    };
+
+    fetch(url, {
+        method,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(productData),
+    })
+        .then(response => response.json())
+        .then(() => {
+            form.reset();
+            loadProducts();
+        });
+});
+
+// Preencher formulário para edição
+function editProduct(id, nome, descricao, preco, image_url, image_url2, image_url3, image_url4, adicional, adicional2) {
+    document.getElementById('product-id').value = id;
+    document.getElementById('nome').value = nome;
+    document.getElementById('descricao').value = descricao;
+    document.getElementById('preco').value = preco;
+    document.getElementById('image_url').value = image_url;
+    document.getElementById('image_url2').value = image_url2;
+    document.getElementById('image_url3').value = image_url3;
+    document.getElementById('image_url4').value = image_url4;
+    document.getElementById('adicional').value = adicional;
+    document.getElementById('adicional2').value = adicional2;
+}
+
+// Deletar produto
+function deleteProduct(id) {
+    if (confirm('Tem certeza que deseja deletar este produto?')) {
+        fetch(`/api/products/${id}`, { method: 'DELETE' })
+            .then(response => response.json())
+            .then(() => loadProducts());
+    }
+}
+
+// Carregar produtos ao iniciar
+loadProducts();
