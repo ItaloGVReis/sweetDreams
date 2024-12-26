@@ -72,8 +72,9 @@ function loadProducts() {
                         <td><img src="${product[7]}" alt="Imagem4" width="50"></td>
                         <td>${product[8]}</td>
                         <td>${product[9]}</td>
+                        <td>${product[10]}</td>
                         <td>
-                            <button onclick="editProduct(${product[0]}, '${product[1]}', '${product[2]}', ${product[3]}, '${product[4]}', '${product[5]}', '${product[6]}', '${product[7]}', '${product[8]}', '${product[9]}' )">Editar</button>
+                            <button onclick="editProduct(${product[0]}, '${product[1]}', '${product[2]}', ${product[3]}, '${product[4]}', '${product[5]}', '${product[6]}', '${product[7]}', '${product[8]}', '${product[9]}', '${product[10]} )">Editar</button>
                             <button onclick="deleteProduct(${product[0]})">Deletar</button>
                         </td>
                     </tr>
@@ -97,7 +98,8 @@ form.addEventListener('submit', (e) => {
         image_url3: document.getElementById('image_url3').value,
         image_url4: document.getElementById('image_url4').value,
         adicional: document.getElementById('adicional').value,
-        adicional2: document.getElementById('adicional2').value
+        adicional2: document.getElementById('adicional2').value,
+        categoria: document.getElementById('categoria').value
         
     };
 
@@ -114,7 +116,7 @@ form.addEventListener('submit', (e) => {
 });
 
 // Preencher formulário para edição
-function editProduct(id, nome, descricao, preco, image_url, image_url2, image_url3, image_url4, adicional, adicional2) {
+function editProduct(id, nome, descricao, preco, image_url, image_url2, image_url3, image_url4, adicional, adicional2, categoria) {
     document.getElementById('product-id').value = id;
     document.getElementById('nome').value = nome;
     document.getElementById('descricao').value = descricao;
@@ -125,6 +127,7 @@ function editProduct(id, nome, descricao, preco, image_url, image_url2, image_ur
     document.getElementById('image_url4').value = image_url4;
     document.getElementById('adicional').value = adicional;
     document.getElementById('adicional2').value = adicional2;
+    document.getElementById('categoria').value = categoria;
 }
 
 // Deletar produto

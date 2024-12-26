@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/style.css">
-    <title>Document</title>
+    <title>{{ produto.nome }}</title>
 </head>
 <body>
 
@@ -26,28 +26,28 @@
         <!-- Product Display -->
         <section class="product-display">
             <div class="imagens-c">
-                <img src="https://via.placeholder.com/328" alt="Produto principal" class="maior">
+                <img src="{{ produto.image_url }}" alt="Produto principal" class="maior">
                 <div class="rapaiz">
-                    <img src="https://via.placeholder.com/100" alt="foto1" class="menores">
-                    <img src="https://via.placeholder.com/100" alt="foto2" class="menores">
-                    <img src="https://via.placeholder.com/100" alt="foto3" class="menores">
+                    <img src="{{ produto.image_url2 }}" alt="foto2" class="menores">
+                    <img src="{{ produto.image_url3 }}" alt="foto3" class="menores">
+                    <img src="{{ produto.image_url4 }}" alt="foto4" class="menores">
                 </div>
             </div>
 
             <div class="product-details">
                 <div class="bruh">
-                    <h1>Nome do produto</h1>
+                    <h1>{{produto.nome}}</h1>
                     <img src="/static/imagens/pausa.png" alt="pausa dnv" class="ah">
                 </div>
-                <p class="description">Descrição breve do produto aqui.</p>
-                <p class="price">R$ XX,XX</p>
+                <p class="description">{{produto.descricao}}</p>
+                <p class="price">{{produto.preco}}</p>
                 <button>Compre Agora</button>
     
                 <div class="add-ons">
                     <div class="adicionar"></div>
                     <div class="bot">
-                        <button>R$ XX,XX</button>
-                        <button>R$ XX,XX</button>
+                        <button>{{produto.adicional}}</button>
+                        <button>{{produto.adicional2}}</button>
                     </div>
                 </div>
             </div>

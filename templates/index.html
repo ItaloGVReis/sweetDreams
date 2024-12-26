@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/style.css">
-    <title>Document</title>
+    <title>Sweet Dreams</title>
 </head>
 <body>
     <header class="head">
@@ -72,225 +72,17 @@
             <div class="quadrado">
                 <div class="chato">
 
-                    <div class="comidasum salgado">
-                        <img src="/static/imagens/torta-s.jpeg" alt="torta salgada" class="photo">
-
+                    {% for produto in produtos %}
+                    <a href="/cardapio?id={{ produto.id }}">
+                    <div class="comidasum {{ produto.categoria }}"> 
+                        <img src="{{ produto.image_url }}" alt="{{ produto.nome }}" class="photo"> 
                         <div>
-                            <h3 style="margin: 10px 0;">Torta salgada</h3>
-                        <p style="margin: 0;">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                             Molestias deleniti enim voluptates iure doloribus harum nesciunt
-                              consectetur eveniet vel molestiae.</p>
+                            <h3 style="margin: 10px 0;">{{ produto.nome }}</h3> 
+                            <p style="margin: 0;">{{ produto.descricao }}</p> 
                         </div>
                     </div>
-
-                    <div class="comidasum salgado">
-                        <img src="/static/imagens/torta-f.jpeg" alt="torta de frango" class="photo">
-
-                        <div>
-                            <h3 style="margin: 10px 0;">Torta de frango</h3>
-                        <p style="margin: 0;">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                             Molestias deleniti enim voluptates iure doloribus harum nesciunt
-                              consectetur eveniet vel molestiae.</p>
-                        </div>
-                    </div>
-
-                    <div class="comidasum salgado">
-                        <img src="/static/imagens/batata.jpeg" alt="batata frita" class="photo">
-
-                        <div>
-                            <h3 style="margin: 10px 0;">Batata frita</h3>
-                        <p style="margin: 0;">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                             Molestias deleniti enim voluptates iure doloribus harum nesciunt
-                              consectetur eveniet vel molestiae.</p>
-                        </div>
-                    </div>
-
-                    <div class="comidasum doce" id="1">
-                        <img src="/static/imagens/bolo-m.jpeg" alt="bolo de morango" class="photo">
-
-                        <div>
-                            <h3 style="margin: 10px 0;">Bolo de morango</h3>
-                        <p style="margin: 0;">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                             Molestias deleniti enim voluptates iure doloribus harum nesciunt
-                              consectetur eveniet vel molestiae.</p>
-                        </div>
-                    </div>
-
-                    <div class="comidasum doce">
-                        <img src="/static/imagens/bolo-p.jpeg" alt="bolo de pote" class="photo">
-
-                        <div>
-                            <h3 style="margin: 10px 0;">Bolo de pote</h3>
-                        <p style="margin: 0;">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                             Molestias deleniti enim voluptates iure doloribus harum nesciunt
-                              consectetur eveniet vel molestiae.</p>
-                        </div>
-                    </div>
-
-                    <div class="comidasum doce">
-                        <img src="/static/imagens/bolo-r.jpeg" alt="bolo redvelvet" class="photo">
-
-                        <div>
-                            <h3 style="margin: 10px 0;">Bolo redvelvet</h3>
-                        <p style="margin: 0;">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                             Molestias deleniti enim voluptates iure doloribus harum nesciunt
-                              consectetur eveniet vel molestiae.</p>
-                        </div>
-                    </div>
-
-                    <div class="comidasum doce">
-                        <img src="/static/imagens/churros.jpeg" alt="churros" class="photo">
-
-                        <div>
-                            <h3 style="margin: 10px 0;">Churros</h3>
-                        <p style="margin: 0;">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                             Molestias deleniti enim voluptates iure doloribus harum nesciunt
-                              consectetur eveniet vel molestiae.</p>
-                        </div>
-                    </div>
-
-                    <div class="comidasum bebida">
-                        <img src="/static/imagens/coca.jpeg" alt="coca cola" class="photo">
-
-                        <div>
-                            <h3 style="margin: 10px 0;">Coca cola</h3>
-                        <p style="margin: 0;">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                             Molestias deleniti enim voluptates iure doloribus harum nesciunt
-                              consectetur eveniet vel molestiae.</p>
-                        </div>
-                    </div>
-
-                    <div class="comidasum salgado">
-                        <img src="/static/imagens/coxinha.jpeg" alt="coxinha" class="photo">
-
-                        <div>
-                            <h3 style="margin: 10px 0;">Coxinha</h3>
-                        <p style="margin: 0;">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                             Molestias deleniti enim voluptates iure doloribus harum nesciunt
-                              consectetur eveniet vel molestiae.</p>
-                        </div>
-                    </div>
-
-                    <div class="comidasum bebida">
-                        <img src="/static/imagens/fanta-u.jpeg" alt="fanta uva" class="photo">
-
-                        <div>
-                            <h3 style="margin: 10px 0;">Fanta uva</h3>
-                        <p style="margin: 0;">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                             Molestias deleniti enim voluptates iure doloribus harum nesciunt
-                              consectetur eveniet vel molestiae.</p>
-                        </div>
-                    </div>
-
-                    <div class="comidasum bebida">
-                        <img src="/static/imagens/guarana.jpeg" alt="refrigerante guarana" class="photo">
-
-                        <div>
-                            <h3 style="margin: 10px 0;">Refrigerante guaraná</h3>
-                        <p style="margin: 0;">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                             Molestias deleniti enim voluptates iure doloribus harum nesciunt
-                              consectetur eveniet vel molestiae.</p>
-                        </div>
-                    </div>
-
-                    <div class="comidasum bebida">
-                        <img src="/static/imagens/jesus.jpeg" alt="refrigerante jesus" class="photo">
-
-                        <div>
-                            <h3 style="margin: 10px 0;">Refrigerante jesus</h3>
-                        <p style="margin: 0;">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                             Molestias deleniti enim voluptates iure doloribus harum nesciunt
-                              consectetur eveniet vel molestiae.</p>
-                        </div>
-                    </div>
-
-                    <div class="comidasum bebida">
-                        <img src="/static/imagens/milkshake-c.jpeg" alt="milkshake de chocolate" class="photo">
-
-                        <div>
-                            <h3 style="margin: 10px 0;">Milkshake de chocolate</h3>
-                        <p style="margin: 0;">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                             Molestias deleniti enim voluptates iure doloribus harum nesciunt
-                              consectetur eveniet vel molestiae.</p>
-                        </div>
-                    </div>
-
-                    <div class="comidasum bebida">
-                        <img src="/static/imagens/milkshake-m.jpeg" alt="milkshake de morango" class="photo">
-
-                        <div>
-                            <h3 style="margin: 10px 0;">Milkshake de morango</h3>
-                        <p style="margin: 0;">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                             Molestias deleniti enim voluptates iure doloribus harum nesciunt
-                              consectetur eveniet vel molestiae.</p>
-                        </div>
-                    </div>
-
-                    <div class="comidasum salgado">
-                        <img src="/static/imagens/misto.jpeg" alt="misto quente" class="photo">
-
-                        <div>
-                            <h3 style="margin: 10px 0;">Misto quente</h3>
-                        <p style="margin: 0;">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                             Molestias deleniti enim voluptates iure doloribus harum nesciunt
-                              consectetur eveniet vel molestiae.</p>
-                        </div>
-                    </div>
-
-                    <div class="comidasum doce">
-                        <img src="/static/imagens/moouse-l.jpeg" alt="moouse de limão" class="photo">
-
-                        <div>
-                            <h3 style="margin: 10px 0;">Moouse de limão</h3>
-                        <p style="margin: 0;">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                             Molestias deleniti enim voluptates iure doloribus harum nesciunt
-                              consectetur eveniet vel molestiae.</p>
-                        </div>
-                    </div>
-
-                    <div class="comidasum doce">
-                        <img src="/static/imagens/moouse-m.jpeg" alt="moouse de maracujá" class="photo">
-
-                        <div>
-                            <h3 style="margin: 10px 0;">Moouse de maracujá</h3>
-                        <p style="margin: 0;">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                             Molestias deleniti enim voluptates iure doloribus harum nesciunt
-                              consectetur eveniet vel molestiae.</p>
-                        </div>
-                    </div>
-
-                    <div class="comidasum salgado">
-                        <img src="/static/imagens/sanduiche.jpeg" alt="sanduiche" class="photo">
-
-                        <div>
-                            <h3 style="margin: 10px 0;">sanduiche</h3>
-                        <p style="margin: 0;">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                             Molestias deleniti enim voluptates iure doloribus harum nesciunt
-                              consectetur eveniet vel molestiae.</p>
-                        </div>
-                    </div>
-
-                    <div class="comidasum bebida">
-                        <img src="/static/imagens/suco-l.jpeg" alt="suco de limão" class="photo">
-
-                        <div>
-                            <h3 style="margin: 10px 0;">Suco de limão</h3>
-                        <p style="margin: 0;">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                             Molestias deleniti enim voluptates iure doloribus harum nesciunt
-                              consectetur eveniet vel molestiae.</p>
-                        </div>
-                    </div>
-
-                    <div class="comidasum bebida">
-                        <img src="/static/imagens/suco-lara.jpeg" alt="suco de laranja" class="photo">
-
-                        <div>
-                            <h3 style="margin: 10px 0;">Suco de laranja</h3>
-                        <p style="margin: 0;">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                             Molestias deleniti enim voluptates iure doloribus harum nesciunt
-                              consectetur eveniet vel molestiae.</p>
-                        </div>
-                    </div>
+                    </a>
+                    {% endfor %}
                 </div>
             </div>
         </div>

@@ -165,12 +165,15 @@ body{
     color: #ecd4a4;
     box-sizing: border-box;
     align-items: center;
-    justify-content: space-between;
     padding: 20px;
     gap: 20px;
     opacity: 1; /* Para transição de opacidade */
     transition: opacity 0.5s ease; /* Suaviza mudanças de opacidade */
     border-radius: 5px;
+    cursor: pointer;
+}
+a{
+    text-decoration: none;
 }
 .tipo :hover{
     color: #a10101;
