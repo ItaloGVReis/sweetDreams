@@ -324,6 +324,8 @@ header input {
     padding-bottom: 5px;
 }
 .review-item, .suggestion-item {
+    display: flex;
+    align-items: center;
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 10px;
@@ -371,6 +373,41 @@ th, td {
 form {
     margin-top: 20px;
 }
+
+.review-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Sombra para o fundo */
+    display: none; /* Oculto por padrão */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+
 
 @media (max-width: 600px) {
     .footer-content {

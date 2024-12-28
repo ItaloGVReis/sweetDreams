@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, redirect
 from flask_mysqldb import MySQL
 from config import Config
 import os
@@ -45,25 +45,48 @@ def test_db():
     cursor.close()
     return f'A solução é: {result[0]}'
 
-@app.route('/cardapio')
+@app.route('/cardapio', methods=['GET', 'POST'])
 def cardapio():
-    # Obtém o ID da query string
+    if request.method == 'POST':
+        # Pega os dados do formulário
+        product_id = request.form.get('product_id')
+        user_name = request.form.get('user_name')
+        avaliacao = request.form.get('avaliacao')
+
+        # Verifica se os campos necessários foram preenchidos
+        if not product_id or not user_name or not avaliacao:
+            return "Dados inválidos", 400
+
+        try:
+            # Salva os dados no banco de dados
+            cursor = mysql.connection.cursor()
+            query = """
+                INSERT INTO produto_avaliacao (product_id, user_name, avaliacao)
+                VALUES (%s, %s, %s)
+            """
+            cursor.execute(query, (product_id, user_name, avaliacao))
+            mysql.connection.commit()
+            cursor.close()
+
+            return redirect(request.url)  # Redireciona para a mesma página, para evitar reenvios duplos
+
+        except Exception as e:
+            return f"Erro ao salvar avaliação: {e}", 500
+
+    # Se for GET, busca o produto com o ID na query string
     id = request.args.get('id')
     if not id:
         return "ID não fornecido", 400  # Retorna um erro se o ID não for passado
 
     try:
         cursor = mysql.connection.cursor()
-        # Busca os detalhes do produto com base no ID
         cursor.execute("""
             SELECT id, nome, descricao, image_url, image_url2, image_url3, image_url4, adicional, adicional2, preco 
             FROM products WHERE id = %s
         """, (id,))
         produto = cursor.fetchone()
-        cursor.close()
 
         if produto:
-            # Transforma o resultado em um dicionário
             produto_dict = {
                 'id': produto[0],
                 'nome': produto[1],
@@ -77,14 +100,50 @@ def cardapio():
                 'preco': produto[9]
             }
 
-            # Renderiza o template com os dados do produto
-            return render_template('cardapio.html', produto=produto_dict)
-        else:
-            # Se nenhum produto for encontrado
-            return "Produto não encontrado", 404
-    except Exception as e:
-        return f"Erro ao buscar a comida: {e}", 500
+            # Busca as avaliações do produto
+            cursor.execute("""
+                SELECT user_name, avaliacao FROM produto_avaliacao WHERE product_id = %s
+            """, (id,))
+            reviews = cursor.fetchall()
 
+            # Passa o produto e as avaliações para o template
+            return render_template('cardapio.html', produto=produto_dict, reviews=reviews)
+        else:
+            return "Produto não encontrado", 404
+
+    except Exception as e:
+        return f"Erro ao buscar o produto: {e}", 500
+
+
+
+
+    
+# @app.route('/api/cardapio')
+# def avaliacao():
+#     cursor = mysql.connection.cursor()
+#     # Corrigir a consulta SQL para unir as tabelas 'products' e 'produto_avaliacao'
+#     cursor.execute("""
+#         SELECT 
+#             produto_avaliacao.product_id, 
+#             produto_avaliacao.user_name, 
+#             produto_avaliacao.nota, 
+#             produto_avaliacao.avaliacao
+#         FROM 
+#             produto_avaliacao 
+#         JOIN products 
+#             ON produto_avaliacao.product_id = products.id
+#     """)
+#     resultados = cursor.fetchall()
+#     avaliacao = [
+#         {
+#             'product_id': avaliacao[0],
+#             'user_name': avaliacao[1],
+#             'nota': avaliacao[2],
+#             'avaliacao': avaliacao[3]
+#         }
+#         for avaliacao in resultados
+#     ]
+#     return render_template('cardapio.html', avaliacao=avaliacao)
 
 
 @app.route('/crud')
@@ -116,7 +175,7 @@ def get_products():
 def update_product(id):
     data = request.json
     cursor = mysql.connection.cursor()
-    query = "UPDATE products SET nome = %s, descricao = %s, preco = %s, image_url = %s, image_url2 = %s, image_url3 = %s, image_url4 = %s, adicional = %s, adicional2 = %s, cetegoria = %s"
+    query = "UPDATE products SET nome = %s, descricao = %s, preco = %s, image_url = %s, image_url2 = %s, image_url3 = %s, image_url4 = %s, adicional = %s, adicional2 = %s, categoria = %s"
     cursor.execute(query, (data['nome'], data['descricao'], data['preco'], data['image_url'], data['image_url2'], data['image_url3'], data['image_url4'], data['adicional'], data['adicional2'], data['categoria'], id))
     mysql.connection.commit()
     cursor.close()
@@ -131,6 +190,36 @@ def delete_product(id):
     mysql.connection.commit()
     cursor.close()
     return jsonify({'message': 'Produto deletado com sucesso!'})
+
+
+@app.route('/api/produto_avaliacao', methods=['POST'])
+def criar_avaliacao():
+    # Pega os dados enviados pelo formulário (não JSON)
+    product_id = request.form.get('product_id')
+    user_name = request.form.get('user_name')
+    nota = request.form.get('nota')
+    avaliacao = request.form.get('avaliacao')
+
+    if not product_id or not user_name or not nota or not avaliacao:
+        return jsonify({'message': 'Dados inválidos'}), 400
+
+    try:
+        cursor = mysql.connection.cursor()
+        query = """
+            INSERT INTO produto_avaliacao (product_id, user_name, nota, avaliacao)
+            VALUES (%s, %s, %s, %s)
+        """
+        cursor.execute(query, (product_id, user_name, nota, avaliacao))
+        mysql.connection.commit()
+        cursor.close()
+        
+        return jsonify({'message': 'Avaliação criada com sucesso!'}), 201
+    except Exception as e:
+        return jsonify({'message': f'Erro ao salvar avaliação: {e}'}), 500
+
+
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)

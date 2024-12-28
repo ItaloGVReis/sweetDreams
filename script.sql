@@ -16,15 +16,15 @@ CREATE TABLE products (
     image_url4 VARCHAR(255) NOT NULL,
     adicional VARCHAR(255) NOT NULL,
     adicional2 VARCHAR(255) NOT NULL,
-    categoria VARCHAR(255) NOT NULL
+    categoria VARCHAR(255) NOT NULL,
+    
 );
 
 -- Tabela de avaliações
-CREATE TABLE product_reviews (
+CREATE TABLE produto_avaliacao (
     id INT AUTO_INCREMENT PRIMARY KEY,
     product_id INT NOT NULL,
     user_name VARCHAR(255) NOT NULL,
-    nota INT NOT NULL CHECK (nota BETWEEN 1 AND 5), -- Avaliação entre 1 e 5 estrelas
     avaliacao TEXT,
     FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
 );

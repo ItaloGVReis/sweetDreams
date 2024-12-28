@@ -57,17 +57,42 @@
         <!-- Reviews -->
         <section class="reviews">
             <h2>Avaliações</h2>
-            <div class="review-item">
-                <p><strong>Usuário 1:</strong> Ótimo produto! ⭐⭐⭐⭐</p>
+            {% if reviews %}
+        
+            {% for review in reviews %}
+           <div class="review-item">
+                <p><strong>Usuário:</strong>{{review[0]}} <br>
+                <strong>Avaliação:</strong>{{ review[1] }}</p>
             </div>
-            <div class="review-item">
-                <p><strong>Usuário 2:</strong> Muito bom! ⭐⭐⭐⭐⭐</p>
-            </div>
-            <div class="review-item">
-                <p><strong>Usuário 3:</strong> Muito ruim! ⭐</p>
-            </div>
-            <button class="add-review-btn">Adicionar Avaliação</button>
+  
+            {% endfor %}
+          
+        {% else %}
+            <p>Não há avaliações para este produto.</p>
+        {% endif %}
+            <button class="add-review-btn" onclick="showModal()">Adicionar Avaliação</button>
         </section>
+
+        <div class="review-modal" style="display: none;">
+            <div class="modal-content">
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+                <h3>Adicionar Avaliação</h3>
+                <form id="review-form" method="POST" >
+
+                    <input type="hidden" id="product-id" name="product_id" value="{{ produto.id }}">
+
+                    <label for="review-name">Nome:</label>
+                    <input type="text" id="user_name" name="user_name" required>
+                    
+                    <label for="review-text">Avaliação:</label>
+                    <textarea id="avaliacao" name="avaliacao" rows="4" required></textarea>
+                                        
+                    <button type="submit">Enviar Avaliação</button>
+                </form>
+            </div>
+        </div>
+        
+        
     
         <!-- Suggestions -->
         <section class="suggestions">

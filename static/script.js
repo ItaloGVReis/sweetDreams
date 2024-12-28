@@ -73,8 +73,9 @@ function loadProducts() {
                         <td>${product[8]}</td>
                         <td>${product[9]}</td>
                         <td>${product[10]}</td>
+                     
                         <td>
-                            <button onclick="editProduct(${product[0]}, '${product[1]}', '${product[2]}', ${product[3]}, '${product[4]}', '${product[5]}', '${product[6]}', '${product[7]}', '${product[8]}', '${product[9]}', '${product[10]} )">Editar</button>
+                            <button onclick="editProduct(${product[0]}, '${product[1]}', '${product[2]}', ${product[3]}, '${product[4]}', '${product[5]}', '${product[6]}', '${product[7]}', '${product[8]}', '${product[9]}', '${product[10]}' )">Editar</button>
                             <button onclick="deleteProduct(${product[0]})">Deletar</button>
                         </td>
                     </tr>
@@ -99,7 +100,8 @@ form.addEventListener('submit', (e) => {
         image_url4: document.getElementById('image_url4').value,
         adicional: document.getElementById('adicional').value,
         adicional2: document.getElementById('adicional2').value,
-        categoria: document.getElementById('categoria').value
+        categoria: document.getElementById('categoria').value,
+
         
     };
 
@@ -128,6 +130,7 @@ function editProduct(id, nome, descricao, preco, image_url, image_url2, image_ur
     document.getElementById('adicional').value = adicional;
     document.getElementById('adicional2').value = adicional2;
     document.getElementById('categoria').value = categoria;
+
 }
 
 // Deletar produto
@@ -141,3 +144,56 @@ function deleteProduct(id) {
 
 // Carregar produtos ao iniciar
 loadProducts();
+
+
+
+
+function showModal() {
+    document.querySelector(".review-modal").style.display = "flex";
+}
+
+function closeModal() {
+    document.querySelector(".review-modal").style.display = "none";
+}
+
+document.querySelector(".close-btn").onclick = closeModal;
+
+document.addEventListener('DOMContentLoaded', () => {
+    const reviewForm = document.getElementById('review-form');
+    
+    reviewForm.addEventListener('submit', (event) => {
+        event.preventDefault();  // Impede o envio normal do formulário
+
+        const productId = document.querySelector('input[name="product_id"]').value;  // Pegue o ID do produto
+        const userName = document.getElementById('review-name').value;
+        const avaliacao = document.getElementById('review-text').value;
+        const nota = document.getElementById('review-rating').value;
+
+        const data = {
+            product_id: productId,
+            user_name: userName,
+            nota: nota,
+            avaliacao: avaliacao
+        };
+
+        fetch('/api/product_reviews', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',  // Aqui, estamos especificando que os dados são JSON
+            },
+            body: JSON.stringify(data)  // Aqui estamos convertendo os dados para JSON
+        })
+        .then(response => response.json())
+        .then(result => {
+            if (result.message) {
+                alert(result.message);
+            }
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+        });
+    });
+});
+
+
+
