@@ -87,7 +87,7 @@ function loadProducts() {
 // Adicionar/Atualizar produto
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const id = document.getElementById('product-id').value;
+    const id = document.getElementById('product-id').value.trim(); // Certifica-se de que o ID está limpo
     const method = id ? 'PUT' : 'POST';
     const url = id ? `/api/products/${id}` : '/api/products';
     const productData = {
@@ -101,8 +101,6 @@ form.addEventListener('submit', (e) => {
         adicional: document.getElementById('adicional').value,
         adicional2: document.getElementById('adicional2').value,
         categoria: document.getElementById('categoria').value
-
-        
     };
 
     fetch(url, {
@@ -110,12 +108,20 @@ form.addEventListener('submit', (e) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(productData),
     })
-        .then(response => response.json())
-        .then(() => {
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Erro na requisição: ${response.statusText}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            alert(data.message || 'Produto atualizado com sucesso!');
             form.reset();
-            loadProducts();
-        });
+            loadProducts(); // Certifique-se de que esta função está implementada corretamente
+        })
+        .catch(error => console.error('Erro:', error));
 });
+
 
 // Preencher formulário para edição
 function editProduct(id, nome, descricao, preco, image_url, image_url2, image_url3, image_url4, adicional, adicional2, categoria) {

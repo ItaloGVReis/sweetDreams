@@ -197,11 +197,16 @@ def get_products():
 def update_product(id):
     data = request.json
     cursor = mysql.connection.cursor()
-    query = "UPDATE products SET nome = %s, descricao = %s, preco = %s, image_url = %s, image_url2 = %s, image_url3 = %s, image_url4 = %s, adicional = %s, adicional2 = %s, categoria = %s"
+    query = """
+        UPDATE products 
+        SET nome = %s, descricao = %s, preco = %s, image_url = %s, image_url2 = %s, image_url3 = %s, image_url4 = %s, adicional = %s, adicional2 = %s, categoria = %s 
+        WHERE id = %s
+    """
     cursor.execute(query, (data['nome'], data['descricao'], data['preco'], data['image_url'], data['image_url2'], data['image_url3'], data['image_url4'], data['adicional'], data['adicional2'], data['categoria'], id))
     mysql.connection.commit()
     cursor.close()
     return jsonify({'message': 'Produto atualizado com sucesso!'})
+
 
 # Deletar um produto
 @app.route('/api/products/<int:id>', methods=['DELETE'])
