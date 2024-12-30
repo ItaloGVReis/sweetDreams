@@ -37,16 +37,34 @@ def home():
     return render_template('index.html', produtos=produtos)
 
 # Rota para testar a conexão com o banco de dados
-@app.route('/test-db')
-def test_db():
-    cursor = mysql.connection.cursor()
-    cursor.execute('SELECT 1 + 1 AS solution')
-    result = cursor.fetchone()
-    cursor.close()
-    return f'A solução é: {result[0]}'
+# @app.route('/test-db')
+# def test_db():
+#     cursor = mysql.connection.cursor()
+#     cursor.execute('SELECT 1 + 1 AS solution')
+#     result = cursor.fetchone()
+#     cursor.close()
+#     return f'A solução é: {result[0]}'
 
 @app.route('/cardapio', methods=['GET', 'POST'])
 def cardapio():
+    id = request.args.get('id')
+    cursor = mysql.connection.cursor()
+    cursor.execute("""
+        SELECT id, image_url 
+        FROM products 
+        WHERE id != %s 
+        ORDER BY RAND() 
+        LIMIT 7
+    """, (id,))
+    resultado = cursor.fetchall()
+    fotos = [
+        {
+            'id': foto[0],
+            'image_url': foto[1]
+        }
+        for foto in resultado
+    ]
+
     if request.method == 'POST':
         # Pega os dados do formulário
         product_id = request.form.get('product_id')
@@ -107,12 +125,16 @@ def cardapio():
             reviews = cursor.fetchall()
 
             # Passa o produto e as avaliações para o template
-            return render_template('cardapio.html', produto=produto_dict, reviews=reviews)
+            return render_template('cardapio.html', produto=produto_dict, reviews=reviews, fotos=fotos)
         else:
             return "Produto não encontrado", 404
 
     except Exception as e:
         return f"Erro ao buscar o produto: {e}", 500
+
+
+
+
 
 
 
@@ -192,30 +214,29 @@ def delete_product(id):
     return jsonify({'message': 'Produto deletado com sucesso!'})
 
 
-@app.route('/api/produto_avaliacao', methods=['POST'])
-def criar_avaliacao():
-    # Pega os dados enviados pelo formulário (não JSON)
-    product_id = request.form.get('product_id')
-    user_name = request.form.get('user_name')
-    nota = request.form.get('nota')
-    avaliacao = request.form.get('avaliacao')
+# @app.route('/api/produto_avaliacao', methods=['POST'])
+# def criar_avaliacao():
+#     # Pega os dados enviados pelo formulário 
+#     product_id = request.form.get('product_id')
+#     user_name = request.form.get('user_name')
+#     avaliacao = request.form.get('avaliacao')
 
-    if not product_id or not user_name or not nota or not avaliacao:
-        return jsonify({'message': 'Dados inválidos'}), 400
+#     if not product_id or not user_name or not avaliacao:
+#         return jsonify({'message': 'Dados inválidos'}), 400
 
-    try:
-        cursor = mysql.connection.cursor()
-        query = """
-            INSERT INTO produto_avaliacao (product_id, user_name, nota, avaliacao)
-            VALUES (%s, %s, %s, %s)
-        """
-        cursor.execute(query, (product_id, user_name, nota, avaliacao))
-        mysql.connection.commit()
-        cursor.close()
+#     try:
+#         cursor = mysql.connection.cursor()
+#         query = """
+#             INSERT INTO produto_avaliacao (product_id, user_name, avaliacao)
+#             VALUES (%s, %s, %s)
+#         """
+#         cursor.execute(query, (product_id, user_name, avaliacao))
+#         mysql.connection.commit()
+#         cursor.close()
         
-        return jsonify({'message': 'Avaliação criada com sucesso!'}), 201
-    except Exception as e:
-        return jsonify({'message': f'Erro ao salvar avaliação: {e}'}), 500
+#         return jsonify({'message': 'Avaliação criada com sucesso!'}), 201
+#     except Exception as e:
+#         return jsonify({'message': f'Erro ao salvar avaliação: {e}'}), 500
 
 
 

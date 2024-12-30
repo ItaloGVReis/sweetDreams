@@ -10,7 +10,9 @@
 
     <header class="head">
         <div class="logo">
-            <h1>SWEET DREAMS</h1>
+            <a href="/">
+                <h1>SWEET DREAMS</h1>
+            </a>
         </div>
 
         <div class="search-bar">
@@ -61,8 +63,8 @@
         
             {% for review in reviews %}
            <div class="review-item">
-                <p><strong>Usuário:</strong>{{review[0]}} <br>
-                <strong>Avaliação:</strong>{{ review[1] }}</p>
+                <p><strong>Usuário: </strong>{{ review[0] }} <br>
+                <strong>Avaliação: </strong>{{ review[1] }}</p>
             </div>
   
             {% endfor %}
@@ -98,13 +100,9 @@
         <section class="suggestions">
             <h2>Sugestões</h2>
             <div class="carousel">
-                <img src="https://via.placeholder.com/150" alt="Sugestão 1">
-                <img src="https://via.placeholder.com/150" alt="Sugestão 2">
-                <img src="https://via.placeholder.com/150" alt="Sugestão 3">
-                <img src="https://via.placeholder.com/150" alt="Sugestão 4">
-                <img src="https://via.placeholder.com/150" alt="Sugestão 5">
-                <img src="https://via.placeholder.com/150" alt="Sugestão 6">
-                <img src="https://via.placeholder.com/150" alt="Sugestão 7">
+            {% for foto in fotos %}
+                <a href="/cardapio?id={{foto.id}}"><img src="{{foto.image_url}}" alt="Sugestão {{foto.id}}"></a>
+            {% endfor %}
 
 
             </div>

@@ -100,7 +100,7 @@ form.addEventListener('submit', (e) => {
         image_url4: document.getElementById('image_url4').value,
         adicional: document.getElementById('adicional').value,
         adicional2: document.getElementById('adicional2').value,
-        categoria: document.getElementById('categoria').value,
+        categoria: document.getElementById('categoria').value
 
         
     };
@@ -158,42 +158,42 @@ function closeModal() {
 
 document.querySelector(".close-btn").onclick = closeModal;
 
-document.addEventListener('DOMContentLoaded', () => {
-    const reviewForm = document.getElementById('review-form');
+// document.addEventListener('DOMContentLoaded', () => {
+//     const reviewForm = document.getElementById('review-form');
     
-    reviewForm.addEventListener('submit', (event) => {
-        event.preventDefault();  // Impede o envio normal do formulário
+//     reviewForm.addEventListener('submit', (event) => {
+//         event.preventDefault();  // Impede o envio normal do formulário
 
-        const productId = document.querySelector('input[name="product_id"]').value;  // Pegue o ID do produto
-        const userName = document.getElementById('review-name').value;
-        const avaliacao = document.getElementById('review-text').value;
-        const nota = document.getElementById('review-rating').value;
+//         const productId = document.querySelector('input[name="product_id"]').value;  // Pegue o ID do produto
+//         const userName = document.getElementById('review-name').value;
+//         const avaliacao = document.getElementById('review-text').value;
+//         const nota = document.getElementById('review-rating').value;
 
-        const data = {
-            product_id: productId,
-            user_name: userName,
-            nota: nota,
-            avaliacao: avaliacao
-        };
+//         const data = {
+//             product_id: productId,
+//             user_name: userName,
+//             nota: nota,
+//             avaliacao: avaliacao
+//         };
 
-        fetch('/api/product_reviews', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',  // Aqui, estamos especificando que os dados são JSON
-            },
-            body: JSON.stringify(data)  // Aqui estamos convertendo os dados para JSON
-        })
-        .then(response => response.json())
-        .then(result => {
-            if (result.message) {
-                alert(result.message);
-            }
-        })
-        .catch(error => {
-            console.error('Erro:', error);
-        });
-    });
-});
+//         fetch('/api/product_reviews', {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json',  // Aqui, estamos especificando que os dados são JSON
+//             },
+//             body: JSON.stringify(data)  // Aqui estamos convertendo os dados para JSON
+//         })
+//         .then(response => response.json())
+//         .then(result => {
+//             if (result.message) {
+//                 alert(result.message);
+//             }
+//         })
+//         .catch(error => {
+//             console.error('Erro:', error);
+//         });
+//     });
+// });
 
 
 
