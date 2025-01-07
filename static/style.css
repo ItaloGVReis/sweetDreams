@@ -37,7 +37,7 @@ body {
 .ilustra {
     display: flex;
     justify-content: center;
-    giluap: 9.375rem; /* 150px */
+    gap: 9.375rem; /* 150px */
     align-items: center;
     height: 33.125rem; /* 530px */
     width: 100%;
