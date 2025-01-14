@@ -6,11 +6,11 @@
     <link rel="stylesheet" href="/static/style.css">
     <title>Document</title>
 </head>
-<body>
+<body class="crud-page">
     <header class="head">
         <div class="logo">
             <a href="/">
-                <h1>SWEET DREAMS</h1>
+                <h1 style="font-size: 3em; font-family: 'Roboto Slab', sans-serif">SWEET DREAMS</h1>
             </a>
         </div>
 
@@ -23,78 +23,78 @@
         </div>
     </header>
 
-<main class="meio" style="height:auto;">
-    <h1>Gerenciar Produtos</h1>
+    <main class="meio" style="height:auto; font-family: Verdana, sans-serif;">
+        <h1>Gerenciar Produtos</h1>
 
-    <form id="product-form">
-        <input type="hidden" id="product-id">
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" required>
+        <form id="product-form">
+            <input type="hidden" id="product-id">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" required>
 
-        <label for="descricao">Descrição:</label>
-        <input type="text" id="descricao" required>
+            <label for="descricao">Descrição:</label>
+            <input type="text" id="descricao" required>
 
-        <label for="preco">Preço:</label>
-        <input type="number" step="0.01" id="preco" required>
+            <label for="preco">Preço:</label>
+            <input type="number" step="0.01" id="preco" required>
 
-        <label for="image_url">URL da Imagem:</label>
-        <input type="text" id="image_url" required>
+            <label for="image_url">URL da Imagem:</label>
+            <input type="text" id="image_url" required>
 
-        <label for="image_url2">URL da Imagem 2:</label>
-        <input type="text" id="image_url2" required>
+            <label for="image_url2">URL da Imagem 2:</label>
+            <input type="text" id="image_url2" required>
 
-        <label for="image_url3">URL da Imagem 3:</label>
-        <input type="text" id="image_url3" required>
+            <label for="image_url3">URL da Imagem 3:</label>
+            <input type="text" id="image_url3" required>
 
-        <label for="image_url4">URL da Imagem 4:</label>
-        <input type="text" id="image_url4" required>
+            <label for="image_url4">URL da Imagem 4:</label>
+            <input type="text" id="image_url4" required>
 
-        <label for="adicional">Adicional 1:</label>
-        <input type="text" id="adicional" required>
+            <label for="adicional">Adicional 1:</label>
+            <input type="text" id="adicional" required>
 
-        <label for="adicional2">Adicional 2:</label>
-        <input type="text" id="adicional2" required>
+            <label for="adicional2">Adicional 2:</label>
+            <input type="text" id="adicional2" required>
 
-        <label for="categoria">Categoria:</label>
-        <input type="text" id="categoria" required>
+            <label for="categoria">Categoria:</label>
+            <input type="text" id="categoria" required>
 
-        <button type="submit" method="PUT">Salvar</button>
-    </form>
+            <button type="submit" method="PUT">Salvar</button>
+        </form>
 
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Descrição</th>
-                <th>Preço</th>
-                <th>Imagem</th>
-                <th>Imagem 2</th>
-                <th>Imagem 3</th>
-                <th>Imagem 4</th>
-                <th>Adicional</th>
-                <th>Adicional 2</th>
-                <th>Categoria</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody id="product-list"></tbody>
-    </table>
-</main>
-    <footer class="footer"> 
-        <div class="footer-line"></div> 
-            <div class="footer-content"> 
-                <div class="social-media"> 
-                    <h3>REDES SOCIAIS</h3> 
-                    <p>@_________</p> 
-                    <p>(98) 9 XXXX-XXXX</p> 
-                </div> 
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Preço</th>
+                    <th>Imagem</th>
+                    <th>Imagem 2</th>
+                    <th>Imagem 3</th>
+                    <th>Imagem 4</th>
+                    <th>Adicional</th>
+                    <th>Adicional 2</th>
+                    <th>Categoria</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="product-list"></tbody>
+        </table>
+    </main>
+    <footer class="footer">
+        <div class="footer-line"></div>
+        <div class="footer-content">
+            <div class="social-media">
+                <h3>REDES SOCIAIS</h3>
+                <p>@_________</p>
+                <p>(98) 9 XXXX-XXXX</p>
+            </div>
 
-                <div class="address"> 
-                    <h3>ENDEREÇO</h3> 
-                    <p>RUA X, N° X, BACABEIRA-MA</p>
-              </div> 
-            </div> 
+            <div class="address">
+                <h3>ENDEREÇO</h3>
+                <p>RUA X, N° X, BACABEIRA-MA</p>
+            </div>
+        </div>
     </footer>
 </body>
 <script src="/static/script.js"></script>

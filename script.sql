@@ -16,8 +16,7 @@ CREATE TABLE products (
     image_url4 VARCHAR(255) NOT NULL,
     adicional VARCHAR(255) NOT NULL,
     adicional2 VARCHAR(255) NOT NULL,
-    categoria VARCHAR(255) NOT NULL,
-    
+    categoria VARCHAR(255) NOT NULL
 );
 
 -- Tabela de avaliações

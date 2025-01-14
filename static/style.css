@@ -8,15 +8,19 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: #ecd4a4;
-    padding: 0.44rem 1.25rem; /* 7px 20px */
-    height: 6.25rem; /* 100px */
+    padding: 0.44rem 1.25rem;
+    /* 7px 20px */
+    height: 6.25rem;
+    /* 100px */
     box-sizing: border-box;
 }
 
 .logo h1 {
-    font-size: clamp(1.5rem, 5vw, 3.125rem); /* Ajusta entre 24px e 50px baseado no tamanho da tela */
+    font-size: clamp(1.5rem, 5vw, 3.125rem);
+    /* Ajusta entre 24px e 50px baseado no tamanho da tela */
     color: #a10101;
-    white-space: nowrap; /* Impede quebra de linha */
+    white-space: nowrap;
+    /* Impede quebra de linha */
     margin: 0;
     text-align: center;
 }
@@ -25,58 +29,109 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1.25rem; /* 20px */
+    gap: 1.25rem;
+    /* 20px */
 }
 
 
 .hbutao {
-    width: 11.25rem; /* 180px */
-    height: 11.25rem; /* 180px */
+    width: 11.25rem;
+    /* 180px */
+    height: 11.25rem;
+    /* 180px */
 }
 
 .ilustra {
     display: flex;
     justify-content: center;
-    gap: 9.375rem; /* 150px */
+    gap: 9.375rem;
+    /* 150px */
     align-items: center;
-    height: 33.125rem; /* 530px */
+    height: 33.125rem;
+    /* 530px */
     width: 100%;
 }
 
 .cacete {
-    margin-left: 7.5rem; /* 120px */
-    height: 28.125rem; /* 450px */
-    width: 25rem; /* 400px */
+    margin-left: 7.5rem;
+    /* 120px */
+    height: 28.125rem;
+    /* 450px */
+    width: 25rem;
+    /* 400px */
     background-color: brown;
     flex-shrink: 0;
 }
 
 .mascote {
-    margin-right: 7.5rem; /* 120px */
-    height: 28.125rem; /* 450px */
-    width: 31.25rem; /* 500px */
+    margin-right: 7.5rem;
+    /* 120px */
+    height: 28.125rem;
+    /* 450px */
+    width: 31.25rem;
+    /* 500px */
     position: relative;
     flex-shrink: 0;
 }
 
 .fita {
-    height: 9.375rem; /* 150px */
+    height: 6rem;
+    width: 75%;
+    display: flex;
+    justify-content: center;
+    /* Centraliza as div horiz*/
+    align-items: center;
+    /* Centraliza as divs vertical */
+    background-color: black;
+    margin: 0 auto;
+    /* Centraliza a fita na tela */
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.fitao {
+    height: 5rem;
+    width: 70%;
+    background-color: white;
+    padding: 10px;
+    /* Afastamento interno */
+    text-align: center;
+    border-radius: 7px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.fitao h3 {
+    margin-bottom: 5px;
+    /* Reduzindo o espaço abaixo do título */
+    line-height: 0.5;
+    /* Ajuste a altura da linha conforme necessário */
+}
+
+.fitao p {
+    margin-top: 0;
+    /* Removendo qualquer margem superior do parágrafo */
+}
+
+/* .fita {
+    height: 9.375rem; (150px )
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
 .fitao {
-    height: 7.5rem; /* 120px */
+    height: 7.5rem; ( 120px )
     width: 77%;
     background-color: black;
-}
+} */
 
 .cardapio {
-    height: 25rem; /* 400px */
+    height: 25rem;
+    /* 400px */
     width: 100%;
     display: flex;
-    gap: 2.5rem; /* 40px */
+    gap: 2.5rem;
+    /* 40px */
     flex-shrink: 0;
 }
 
@@ -84,34 +139,55 @@ body {
     margin-left: 3.125rem; /* 50px */
     height: 21.875rem; /* 350px */
     width: 37.5rem; /* 600px */
-    background-color: blue;
-    flex-shrink: 0;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+.imagem-cardapio {
+    width: 100%;
+    height: 100%; 
+    object-fit: cover; 
+    display: flex;
+    margin-left: 3.125rem;
+
 }
 
 .fotinha {
     display: flex;
-    gap: 1.875rem; /* 30px */
+    gap: 1.875rem;
+    /* 30px */
     align-items: center;
     justify-content: center;
-    height: 12.5rem; /* 200px */
+    height: 12.5rem;
+    /* 200px */
 }
 
 .photo {
-    height: 9.375rem; /* 150px */
-    width: 9.375rem; /* 150px */
+    height: 9.375rem;
+    /* 150px */
+    width: 9.375rem;
+    /* 150px */
     flex-shrink: 0;
-    border-radius: 0.3125rem; /* 5px */
+    border-radius: 0.3125rem;
+    /* 5px */
 }
+
 .photo1 {
-    height: 9.375rem; /* 150px */
-    width: 9.375rem; /* 150px */
+    height: 9.375rem;
+    /* 150px */
+    width: 9.375rem;
+    /* 150px */
     flex-shrink: 0;
-    border-radius: 0.3125rem; /* 5px */
+    border-radius: 0.3125rem;
+    /* 5px */
 }
 
 .jeito {
-    height: 21.875rem; /* 350px */
-    width: 37.5rem; /* 600px */
+    height: 21.875rem;
+    /* 350px */
+    width: 37.5rem;
+    /* 600px */
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
@@ -119,7 +195,8 @@ body {
 }
 
 .buts {
-    height: 9.375rem; /* 150px */
+    height: 9.375rem;
+    /* 150px */
     width: 100%;
     display: flex;
     align-items: center;
@@ -130,11 +207,14 @@ body {
 .butaos {
     display: flex;
     justify-content: space-between;
-    height: 5.625rem; /* 90px */
-    width: 37.5rem; /* 600px */
+    height: 5.625rem;
+    /* 90px */
+    width: 37.5rem;
+    /* 600px */
     background-color: #a10101;
     align-items: center;
-    border-radius: 0.25rem; /* 4px */
+    border-radius: 0.25rem;
+    /* 4px */
     padding-left: 15px;
 }
 
@@ -142,17 +222,22 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 2.5rem; /* 40px */
-    width: 9.375rem; /* 150px */
+    height: 2.5rem;
+    /* 40px */
+    width: 9.375rem;
+    /* 150px */
     background-color: #620100;
     color: #ecd4a4;
     cursor: pointer;
-    border-radius: 0.25rem; /* 4px */
+    border-radius: 0.25rem;
+    /* 4px */
 }
 
 .simb {
-    height: 3.125rem; /* 50px */
-    width: 3.75rem; /* 60px */
+    height: 3.125rem;
+    /* 50px */
+    width: 3.75rem;
+    /* 60px */
 }
 
 .cardapao {
@@ -170,23 +255,32 @@ body {
     width: 93%;
     height: auto;
     background-color: #a10101;
-    border-radius: 0.3125rem; /* 5px */
+    border-radius: 0.3125rem;
+    /* 5px */
 }
 
 .comidasum {
     display: flex;
-    margin: 3% 0.625rem; /* 10px */
-    height: 12.5rem; /* 200px */
-    width: 31.25rem; /* 500px */
+    margin: 3% 0.625rem;
+    /* 10px */
+    height: 12.5rem;
+    /* 200px */
+    width: 31.25rem;
+    /* 500px */
     background-color: #620100;
     color: #ecd4a4;
     box-sizing: border-box;
     align-items: center;
-    padding: 1.25rem; /* 20px */
-    gap: 1.25rem; /* 20px */
-    opacity: 1; /* Para transição de opacidade */
-    transition: opacity 0.5s ease; /* Suaviza mudanças de opacidade */
-    border-radius: 0.3125rem; /* 5px */
+    padding: 1.25rem;
+    /* 20px */
+    gap: 1.25rem;
+    /* 20px */
+    opacity: 1;
+    /* Para transição de opacidade */
+    transition: opacity 0.5s ease;
+    /* Suaviza mudanças de opacidade */
+    border-radius: 0.3125rem;
+    /* 5px */
     cursor: pointer;
 }
 
@@ -203,16 +297,19 @@ a {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 0.625rem; /* 10px */
+    gap: 0.625rem;
+    /* 10px */
 }
 
 .footer {
     background-color: #a10101;
     color: #ecd4a4;
-    padding: 1.25rem 0; /* 20px 0 */
+    padding: 1.25rem 0;
+    /* 20px 0 */
     text-align: center;
     position: relative;
-    margin-top: 3.125rem; /* 50px */
+    margin-top: 3.125rem;
+    /* 50px */
     width: 100%;
 }
 
@@ -225,19 +322,23 @@ a {
 }
 
 .footer-content div {
-    margin: 0 1.25rem; /* 20px */
+    margin: 0 1.25rem;
+    /* 20px */
 }
 
 .footer-content h3 {
-    margin-bottom: 0.625rem; /* 10px */
+    margin-bottom: 0.625rem;
+    /* 10px */
 }
 
 .footer-line {
     width: 100%;
-    height: 0.125rem; /* 2px */
+    height: 0.125rem;
+    /* 2px */
     background-color: #ecd4a4;
     position: absolute;
-    bottom: 0.625rem; /* 10px */
+    bottom: 0.625rem;
+    /* 10px */
     left: 0;
 }
 
@@ -251,82 +352,107 @@ header .search-bar {
     flex: 1;
     margin: 0 10px;
 }
+
 header input {
     width: 100%;
     padding: 5px;
 }
+
 .meio {
     max-width: 1200px;
     margin: 20px auto;
     padding: 10px;
 }
+
 .product-display {
     display: flex;
     gap: 70px;
 }
-.maior{
+
+.maior {
     width: 328px;
     height: auto;
     border: 2px solid #ccc;
 }
-.menores{
+
+.menores {
     width: 100px;
     height: auto;
     border: 2px solid #ccc;
 }
-.rapaiz{
+
+.rapaiz {
     display: flex;
     gap: 10px;
 }
-.imagens-c{
+
+.imagens-c {
     display: flex;
     flex-direction: column;
     gap: 10px;
     align-items: center;
 }
-.bruh{
+
+.bruh {
     display: flex;
     gap: 10px;
     align-items: center;
     height: 50px;
-    width:max-content;
+    width: max-content;
     background-color: gray;
     padding-left: 10px;
     padding-right: 10px;
     border-radius: 4px;
 }
-.bruh h1{
+
+.bruh h1 {
     width: auto;
     margin: 0 auto;
 }
-.ah{
+
+.ah {
     height: 28px;
     width: auto;
 }
+
 .product-details {
     flex: 1;
 }
+
 .product-details h1 {
     margin-top: 0;
 }
+
 .price {
     font-size: 1.5em;
     color: #d9534f;
 }
+
 .add-ons {
     margin-top: 20px;
     display: flex;
 }
-.adicionar{
+
+.adicionar {
     height: 170px;
     width: 170px;
-    background-color: #5cb85c;
+    display: flex;
+    justify-content: center; 
+    align-items: center;  
 }
-.bot{
+
+.imagem-adicionais {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.bot {
     display: flex;
     flex-direction: column;
-    justify-content:end;
+    justify-content: end;
 }
+
 .bot button {
     margin: 5px;
     padding: 10px;
@@ -335,16 +461,22 @@ header input {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    width:max-content;
+    width: max-content;
 }
-.reviews, .suggestions {
+
+.reviews,
+.suggestions {
     margin-top: 30px;
 }
-.reviews h2, .suggestions h2 {
+
+.reviews h2,
+.suggestions h2 {
     border-bottom: 2px solid #ddd;
     padding-bottom: 5px;
 }
-.review-item, .suggestion-item {
+
+.review-item,
+.suggestion-item {
     display: flex;
     align-items: center;
     border: 1px solid #ddd;
@@ -353,6 +485,7 @@ header input {
     margin: 10px 0;
     background-color: #fff;
 }
+
 .add-review-btn {
     display: block;
     margin: 20px 0 0 auto;
@@ -363,11 +496,13 @@ header input {
     border-radius: 5px;
     cursor: pointer;
 }
+
 .carousel {
     display: flex;
     overflow-x: auto;
     scroll-behavior: smooth;
 }
+
 .carousel img {
     width: 150px;
     height: auto;
@@ -375,6 +510,7 @@ header input {
     border-radius: 5px;
     border: 1px solid #ddd;
 }
+
 .carousel::-webkit-scrollbar {
     display: none;
 }
@@ -384,13 +520,19 @@ table {
     border-collapse: collapse;
     margin-top: 20px;
 }
-table, th, td {
+
+table,
+th,
+td {
     border: 1px solid #ddd;
 }
-th, td {
+
+th,
+td {
     padding: 8px;
     text-align: left;
 }
+
 form {
     margin-top: 20px;
 }
@@ -401,8 +543,10 @@ form {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Sombra para o fundo */
-    display: none; /* Oculto por padrão */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Sombra para o fundo */
+    display: none;
+    /* Oculto por padrão */
     justify-content: center;
     align-items: center;
     z-index: 1000;
@@ -426,35 +570,40 @@ form {
     font-size: 20px;
     cursor: pointer;
 }
-@media (max-width: 606px){
-    .hbutao{
+
+@media (max-width: 606px) {
+    .hbutao {
         display: none;
     }
-    .logo h1{
+
+    .logo h1 {
         font-size: 3.1rem;
         width: 97%;
     }
 }
 
-@media (max-width: 1049px){
-    .mascote{
+@media (max-width: 1049px) {
+    .mascote {
         display: none;
     }
-    .cacete{
+
+    .cacete {
         margin-left: 0;
     }
 }
 
-@media (max-width: 1300px){
-    .card{
+@media (max-width: 1300px) {
+    .card {
         display: none;
     }
-    .cardapio{
+
+    .cardapio {
         display: flex;
         align-items: center;
         justify-content: center;
     }
 }
+
 @media (max-width: 1000px) {
     /* .footer-content {
         flex-direction: column;
@@ -463,20 +612,22 @@ form {
     .footer-content div {
         margin: 10px 0;
     }
-    body{
+
+    body {
         margin: 0 auto;
     }
 
-    .card{
+    .card {
         display: none;
     }
 
-    .cardapio{
+    .cardapio {
         display: flex;
         align-items: center;
         justify-content: center;
     }
-    .comidasum{
+
+    .comidasum {
         height: 250px;
         width: 300px;
         display: flex;
@@ -488,26 +639,34 @@ form {
 
 @media (max-width: 768px) {
     .cardapio {
-        flex-direction: column; /* Empilha os itens */
+        flex-direction: column;
+        /* Empilha os itens */
         align-items: center;
     }
-    .simb{
+
+    .simb {
         display: none;
     }
-    .tipo{
+
+    .tipo {
         margin-left: 0;
     }
-    .card, .jeito {
-        width: 90%; /* Ajusta para quase toda a largura da tela */
+
+    .card,
+    .jeito {
+        width: 90%;
+        /* Ajusta para quase toda a largura da tela */
     }
 
     .photo1 {
-        height: 7.5rem; /* Reduz imagens */
+        height: 7.5rem;
+        /* Reduz imagens */
         width: 7.5rem;
     }
 
     .butaos {
-        flex-direction: column; /* Botões empilhados */
+        flex-direction: column;
+        /* Botões empilhados */
         padding-left: 0;
         height: auto;
         gap: 10px;
@@ -517,35 +676,65 @@ form {
     }
 
     .tipos {
-        width: 50%; /* Botões ocupam largura total */
+        width: 50%;
+        /* Botões ocupam largura total */
         text-align: center;
     }
 }
 
 @media (max-width: 480px) {
     .photo1 {
-        height: 6rem; /* Imagens ainda menores */
+        height: 6rem;
+        /* Imagens ainda menores */
         width: 6rem;
     }
 
     .butaos {
-        gap: 0.5rem; /* Reduz espaço entre botões */
+        gap: 0.5rem;
+        /* Reduz espaço entre botões */
     }
+
     .cacete {
         width: 90%;
     }
+
     .head {
-        flex-direction:inherit;
-        height: auto; /* Permite altura dinâmica */
+        flex-direction: inherit;
+        height: auto;
+        /* Permite altura dinâmica */
     }
 
     .logo h1 {
-        font-size: 2rem; /* Reduz o tamanho do texto para caber na tela */
+        font-size: 2rem;
+        /* Reduz o tamanho do texto para caber na tela */
     }
 }
 
+/* pra pagina crud ficar bonita na vertical*/
+.crud-page form input {
+    display: block;
+    width: 89%;
+    font-size: 1rem;
+}
 
+/*para ocultar a fita cassete*/
+@media (max-width: 768px) {
+    .fita {
+        display: none;
+    }
+}
 
+#corpo-cardapio {
+    font-family: 'Lora', serif;
+  }
+  
+  #review-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 
-
-
+.form-group label {
+    margin-right: 10px;
+    min-width: 80px; 
+}

@@ -200,6 +200,3 @@ document.querySelector(".close-btn").onclick = closeModal;
 //         });
 //     });
 // });
-
-
-

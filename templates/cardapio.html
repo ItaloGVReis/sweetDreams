@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
     <title>{{ produto.nome }}</title>
 </head>
-<body>
 
+<body id="corpo-cardapio">
     <header class="head">
         <div class="logo">
             <a href="/">
@@ -23,7 +25,7 @@
             <img src="/static/imagens/logo.PNG" alt="icone" class="hbutao">
         </div>
     </header>
-    
+
     <main class="meio">
         <!-- Product Display -->
         <section class="product-display">
@@ -44,34 +46,38 @@
                 <p class="description">{{produto.descricao}}</p>
                 <p class="price">{{produto.preco}}</p>
                 <button>Compre Agora</button>
-    
+                
                 <div class="add-ons">
-                    <div class="adicionar"></div>
+                    <div class="adicionar">
+                        <img src="/static/imagens/adicionais.png" alt="adicionais" class="imagem-adicionais">
+                    </div>
                     <div class="bot">
                         <button>{{produto.adicional}}</button>
                         <button>{{produto.adicional2}}</button>
                     </div>
                 </div>
+                
             </div>
             <img src="/static/imagens/mascote.gif" alt="gif do mascote" class="mascote">
         </section>
-    
+
         <!-- Reviews -->
         <section class="reviews">
             <h2>Avaliações</h2>
             {% if reviews %}
-        
+
             {% for review in reviews %}
-           <div class="review-item">
+            <div class="review-item">
                 <p><strong>Usuário: </strong>{{ review[0] }} <br>
-                <strong>Avaliação: </strong>{{ review[1] }}</p>
+                    <strong>Avaliação: </strong>{{ review[1] }}
+                </p>
             </div>
-  
+
             {% endfor %}
-          
-        {% else %}
+
+            {% else %}
             <p>Não há avaliações para este produto.</p>
-        {% endif %}
+            {% endif %}
             <button class="add-review-btn" onclick="showModal()">Adicionar Avaliação</button>
         </section>
 
@@ -79,52 +85,53 @@
             <div class="modal-content">
                 <button class="close-btn" onclick="closeModal()">&times;</button>
                 <h3>Adicionar Avaliação</h3>
-                <form id="review-form" method="POST" >
+                <form id="review-form" method="POST">
 
                     <input type="hidden" id="product-id" name="product_id" value="{{ produto.id }}">
 
                     <label for="review-name">Nome:</label>
                     <input type="text" id="user_name" name="user_name" required>
-                    
+
                     <label for="review-text">Avaliação:</label>
                     <textarea id="avaliacao" name="avaliacao" rows="4" required></textarea>
-                                        
+
                     <button type="submit">Enviar Avaliação</button>
                 </form>
             </div>
         </div>
-        
-        
-    
+
+
+
         <!-- Suggestions -->
         <section class="suggestions">
             <h2>Sugestões</h2>
             <div class="carousel">
-            {% for foto in fotos %}
+                {% for foto in fotos %}
                 <a href="/cardapio?id={{foto.id}}"><img src="{{foto.image_url}}" alt="Sugestão {{foto.id}}"></a>
-            {% endfor %}
+                {% endfor %}
 
 
             </div>
         </section>
     </main>
-    
-    <footer class="footer"> 
-        <div class="footer-line"></div> 
-            <div class="footer-content"> 
-                <div class="social-media"> 
-                    <h3>REDES SOCIAIS</h3> 
-                    <p>@_________</p> 
-                    <p>(98) 9 XXXX-XXXX</p> 
-                </div> 
 
-                <div class="address"> 
-                    <h3>ENDEREÇO</h3> 
-                    <p>RUA X, N° X, BACABEIRA-MA</p>
-              </div> 
-            </div> 
+    <footer class="footer">
+        <div class="footer-line"></div>
+        <div class="footer-content">
+            <div class="social-media">
+                <h3>REDES SOCIAIS</h3>
+                <p>@_________</p>
+                <p>(98) 9 XXXX-XXXX</p>
+            </div>
+
+            <div class="address">
+                <h3>ENDEREÇO</h3>
+                <p>RUA X, N° X, BACABEIRA-MA</p>
+            </div>
+        </div>
     </footer>
-    
-    </body>
-    <script src="/static/script.js"></script>
+
+</body>
+<script src="/static/script.js"></script>
+
 </html>

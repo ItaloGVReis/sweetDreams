@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Jost:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto+Slab:wght@100..900&display=swap"
+        rel="stylesheet">
     <title>Sweet Dreams</title>
 </head>
+
 <body>
     <header class="head">
-        <div  class="logo">
+        <div class="logo">
             <a href="/">
-                <h1>SWEET DREAMS</h1>
+                <h1 style="font-size: 2.5em; font-family: 'Roboto Slab', sans-serif">SWEET DREAMS</h1>
             </a>
         </div>
 
         <div class="simbolos">
 
-                <img src="/static/imagens/logo.PNG" alt="icone" class="hbutao">
+            <img src="/static/imagens/logo.PNG" alt="icone" class="hbutao">
 
         </div>
     </header>
@@ -28,41 +33,51 @@
             </div>
 
 
-                <img src="/static/imagens/mascote.gif" alt="gif do mascote" class="mascote">
+            <img src="/static/imagens/mascote.gif" alt="gif do mascote" class="mascote">
 
         </div>
 
-        <div class="fita">
-            <div class="fitao">
+        <div class="fita"> <!-- preta  -->
+            <div class="fitao"> <!--branca-->
+                <h3 style="font-family: 'Bebas Neue', sans-serif; font-size: 30px;">Quem Somos</h3>
+                <p style="font-family: 'Jost', sans-serif; line-height: 1.5;">Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit. Vivamus lacinia odio vitae vestibulum</p>
 
             </div>
         </div>
 
         <div class="cardapio">
             <div class="card">
-                
+                <img src="/static/imagens/cardapio.png" alt="Salgado" class="imagem-cardapio">
             </div>
             <div class="jeito">
                 <div class="fotinha">
-   
+
                     <img src="/static/imagens/salgado.png" alt="Salgado" class="photo1">
 
                     <img src="/static/imagens/doce.png" alt="Doce" class="photo1">
 
                     <img src="/static/imagens/bebida.png" alt="Imagens" class="photo1">
-                    
+
                 </div>
 
-                    <div class="buts">
-                        <div class="butaos">
-                            <div class="tipos" data-filter="salgado" ><h2>Salgado</h2></div>
-                            <div class="tipos" data-filter="doce"><h2>Doce</h2></div>
-                            <div class="tipos" data-filter="bebida" ><h2>Bebida</h2></div>
-                            <img src="/static/imagens/pausa.png" alt="simbolo de pausa e play" class="simb" style="margin-right: 12px;">
-        
+                <div class="buts">
+                    <div class="butaos">
+                        <div class="tipos" data-filter="salgado">
+                            <h2 style="font-family: 'Jost';">Salgado</h2>
                         </div>
+                        <div class="tipos" data-filter="doce">
+                            <h2 style="font-family: 'Jost';">Doce</h2>
+                        </div>
+                        <div class="tipos" data-filter="bebida">
+                            <h2 style="font-family: 'Jost';">Bebida</h2>
+                        </div>
+                        <img src="/static/imagens/pausa.png" alt="simbolo de pausa e play" class="simb"
+                            style="margin-right: 12px;">
+
                     </div>
-                
+                </div>
+
             </div>
 
         </div>
@@ -72,13 +87,13 @@
 
                     {% for produto in produtos %}
                     <a href="/cardapio?id={{ produto.id }}">
-                    <div class="comidasum {{ produto.categoria }}"> 
-                        <img src="{{ produto.image_url }}" alt="{{ produto.nome }}" class="photo"> 
-                        <div>
-                            <h3 style="margin: 10px 0;">{{ produto.nome }}</h3> 
-                            <p style="margin: 0;">{{ produto.descricao }}</p> 
+                        <div class="comidasum {{ produto.categoria }}">
+                            <img src="{{ produto.image_url }}" alt="{{ produto.nome }}" class="photo">
+                            <div>
+                                <h3 style="margin: 10px 0;">{{ produto.nome }}</h3>
+                                <p style="margin: 0;">{{ produto.descricao }}</p>
+                            </div>
                         </div>
-                    </div>
                     </a>
                     {% endfor %}
                 </div>
@@ -87,23 +102,32 @@
 
     </main>
 
-    <footer class="footer"> 
-        <div class="footer-line"></div> 
-            <div class="footer-content"> 
-                <div class="social-media"> 
-                    <h3>REDES SOCIAIS</h3> 
-                    <p>@_________</p> 
-                    <p>(98) 9 XXXX-XXXX</p> 
-                </div> 
+    <footer class="footer">
+        <div class="footer-line"></div>
+        <div class="footer-content">
+            <div class="social-media">
+                <h3 >REDES SOCIAIS</h3>
+                <p>@_________</p>
+                <p style="font-family: 'Bebas Neue';">(98) 9 XXXX-XXXX</p>
+            </div>
 
-                <div class="address"> 
-                    <h3>ENDEREÇO</h3> 
-                    <p>RUA X, N° X, BACABEIRA-MA</p>
-                    <p style="color: #a10101">minha equipe de TI não fez nada</p>
-              </div> 
-            </div> 
+            <div class="address">
+                <h3>ENDEREÇO</h3>
+                <p>RUA X, N° X, BACABEIRA-MA</p>
+                <p style="color: #a10101">Eu vou te dar um amor desses de cinema...</p>
+            </div>
+        </div>
     </footer>
+    <script> document.addEventListener('DOMContentLoaded', function () {
+            const titulo = document.querySelector('h3');
+            const descricao = document.querySelector('p');
 
+            titulo.addEventListener('click', function () {
+                descricao.textContent = "A Sweet Dreams taratararararararrarararararararar!";
+            });
+        });
+    </script>
 </body>
 <script src="/static/script.js"></script>
+
 </html>
