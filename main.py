@@ -54,7 +54,7 @@ def cardapio():
         FROM products 
         WHERE id != %s 
         ORDER BY RAND() 
-        LIMIT 7
+        LIMIT 20
     """, (id,))
     resultado = cursor.fetchall()
     fotos = [
@@ -158,8 +158,8 @@ def cardapio():
 #     resultados = cursor.fetchall()
 #     avaliacao = [
 #         {
-#             'product_id': avaliacao[0],
-#             'user_name': avaliacao[1],
+#             'product_id': avaliacao
+#             'user_name': avaliacao,
 #             'nota': avaliacao[2],
 #             'avaliacao': avaliacao[3]
 #         }

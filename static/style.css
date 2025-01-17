@@ -372,13 +372,13 @@ header input {
 .maior {
     width: 328px;
     height: auto;
-    border: 2px solid #ccc;
+    border: 2px solid #fff;
 }
 
 .menores {
     width: 100px;
     height: auto;
-    border: 2px solid #ccc;
+    border: 2px solid #fff;
 }
 
 .rapaiz {
@@ -399,7 +399,7 @@ header input {
     align-items: center;
     height: 50px;
     width: max-content;
-    background-color: gray;
+    background-color: #fff;
     padding-left: 10px;
     padding-right: 10px;
     border-radius: 4px;
@@ -508,7 +508,7 @@ header input {
     height: auto;
     margin: 0 10px;
     border-radius: 5px;
-    border: 1px solid #ddd;
+    border: 1px solid #a10101;
 }
 
 .carousel::-webkit-scrollbar {
@@ -723,7 +723,16 @@ form {
         display: none;
     }
 }
+@media (max-width: 680px){
+    .product-display{
+        display: flex;
+        flex-direction: column;
+    }
 
+    .product-details{
+        padding-top: 10px;
+    }
+}
 #corpo-cardapio {
     font-family: 'Lora', serif;
   }
@@ -737,4 +746,9 @@ form {
 .form-group label {
     margin-right: 10px;
     min-width: 80px; 
+}
+@media (max-width: 1270px){
+    .mascote{
+        display: none;
+    }
 }
