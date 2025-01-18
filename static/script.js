@@ -54,8 +54,8 @@ const form = document.getElementById('product-form');
 const productList = document.getElementById('product-list');
 
 // Carregar produtos
-function loadProducts() {
-    fetch('/api/products')
+function loadproducts1() {
+    fetch('/api/products1')
         .then(response => response.json())
         .then(data => {
             productList.innerHTML = '';
@@ -89,7 +89,7 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
     const id = document.getElementById('product-id').value.trim(); // Certifica-se de que o ID está limpo
     const method = id ? 'PUT' : 'POST';
-    const url = id ? `/api/products/${id}` : '/api/products';
+    const url = id ? `/api/products1/${id}` : '/api/products1';
     const productData = {
         nome: document.getElementById('nome').value,
         descricao: document.getElementById('descricao').value,
@@ -117,7 +117,7 @@ form.addEventListener('submit', (e) => {
         .then(data => {
             alert(data.message || 'Produto atualizado com sucesso!');
             form.reset();
-            loadProducts(); // Certifique-se de que esta função está implementada corretamente
+            loadproducts1(); // Certifique-se de que esta função está implementada corretamente
         })
         .catch(error => console.error('Erro:', error));
 });
@@ -142,14 +142,14 @@ function editProduct(id, nome, descricao, preco, image_url, image_url2, image_ur
 // Deletar produto
 function deleteProduct(id) {
     if (confirm('Tem certeza que deseja deletar este produto?')) {
-        fetch(`/api/products/${id}`, { method: 'DELETE' })
+        fetch(`/api/products1/${id}`, { method: 'DELETE' })
             .then(response => response.json())
-            .then(() => loadProducts());
+            .then(() => loadproducts1());
     }
 }
 
 // Carregar produtos ao iniciar
-loadProducts();
+loadproducts1();
 
 
 

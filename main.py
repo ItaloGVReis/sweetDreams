@@ -15,7 +15,7 @@ mysql = MySQL(app)
 @app.route('/')
 def home():
     cursor = mysql.connection.cursor()
-    cursor.execute("SELECT id, nome, descricao, image_url, categoria FROM products")
+    cursor.execute("SELECT id, nome, descricao, image_url, categoria FROM products1")
     resultados = cursor.fetchall()
     produtos = [
         {
@@ -44,7 +44,7 @@ def cardapio():
     cursor = mysql.connection.cursor()
     cursor.execute("""
         SELECT id, image_url 
-        FROM products 
+        FROM products1 
         WHERE id != %s 
         ORDER BY RAND() 
         LIMIT 20
@@ -93,7 +93,7 @@ def cardapio():
         cursor = mysql.connection.cursor()
         cursor.execute("""
             SELECT id, nome, descricao, image_url, image_url2, image_url3, image_url4, adicional, adicional2, preco 
-            FROM products WHERE id = %s
+            FROM products1 WHERE id = %s
         """, (id,))
         produto = cursor.fetchone()
 
@@ -136,7 +136,7 @@ def cardapio():
 # @app.route('/api/cardapio')
 # def avaliacao():
 #     cursor = mysql.connection.cursor()
-#     # Corrigir a consulta SQL para unir as tabelas 'products' e 'produto_avaliacao'
+#     # Corrigir a consulta SQL para unir as tabelas 'products1' e 'produto_avaliacao'
 #     cursor.execute("""
 #         SELECT 
 #             produto_avaliacao.product_id, 
@@ -145,8 +145,8 @@ def cardapio():
 #             produto_avaliacao.avaliacao
 #         FROM 
 #             produto_avaliacao 
-#         JOIN products 
-#             ON produto_avaliacao.product_id = products.id
+#         JOIN products1 
+#             ON produto_avaliacao.product_id = products1.id
 #     """)
 #     resultados = cursor.fetchall()
 #     avaliacao = [
@@ -166,32 +166,32 @@ def crud():
     return render_template('crud.html')
 
 # Criar um novo produto
-@app.route('/api/products', methods=['POST'])
+@app.route('/api/products1', methods=['POST'])
 def create_product():
     data = request.json
     cursor = mysql.connection.cursor()
-    query = "INSERT INTO products (nome, descricao, preco, image_url, image_url2, image_url3, image_url4, adicional, adicional2, categoria) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+    query = "INSERT INTO products1 (nome, descricao, preco, image_url, image_url2, image_url3, image_url4, adicional, adicional2, categoria) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
     cursor.execute(query, (data['nome'], data['descricao'], data['preco'], data['image_url'], data['image_url2'], data['image_url3'], data['image_url4'], data['adicional'], data['adicional2'], data['categoria']))
     mysql.connection.commit()
     cursor.close()
     return jsonify({'message': 'Produto criado com sucesso!'})
 
 # Ler todos os produtos
-@app.route('/api/products', methods=['GET'])
-def get_products():
+@app.route('/api/products1', methods=['GET'])
+def get_products1():
     cursor = mysql.connection.cursor()
-    cursor.execute("SELECT * FROM products")
-    products = cursor.fetchall()
+    cursor.execute("SELECT * FROM products1")
+    products1 = cursor.fetchall()
     cursor.close()
-    return jsonify(products)
+    return jsonify(products1)
 
 # Atualizar um produto existente
-@app.route('/api/products/<int:id>', methods=['PUT'])
+@app.route('/api/products1/<int:id>', methods=['PUT'])
 def update_product(id):
     data = request.json
     cursor = mysql.connection.cursor()
     query = """
-        UPDATE products 
+        UPDATE products1 
         SET nome = %s, descricao = %s, preco = %s, image_url = %s, image_url2 = %s, image_url3 = %s, image_url4 = %s, adicional = %s, adicional2 = %s, categoria = %s 
         WHERE id = %s
     """
@@ -202,10 +202,10 @@ def update_product(id):
 
 
 # Deletar um produto
-@app.route('/api/products/<int:id>', methods=['DELETE'])
+@app.route('/api/products1/<int:id>', methods=['DELETE'])
 def delete_product(id):
     cursor = mysql.connection.cursor()
-    query = "DELETE FROM products WHERE id = %s"
+    query = "DELETE FROM products1 WHERE id = %s"
     cursor.execute(query, (id,))
     mysql.connection.commit()
     cursor.close()
