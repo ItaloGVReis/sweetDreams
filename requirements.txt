@@ -1,4 +1,2 @@
 flask
 flask_mysqldb
-config
-dotenv
