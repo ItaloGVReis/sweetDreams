@@ -29,7 +29,17 @@
     <main>
         <div class="ilustra">
             <div class="cacete">
-
+                <div class="calvo">
+                    Missão
+                </div>
+                <div style="display: flex; height: 83%; width: 100%;">
+                    <div class="fitinha">
+                        <img src="/static/imagens/fitaanimada.gif" alt="fita animada" onclick="alternarConteudo()">
+                    </div>
+                    <div class="textinho">
+                        Nosso compromisso é fornecer os melhores serviços para nossos clientes.
+                    </div>
+                </div>
             </div>
 
 
@@ -40,8 +50,8 @@
         <div class="fita"> <!-- preta  -->
             <div class="fitao"> <!--branca-->
                 <h3 style="font-family: 'Bebas Neue', sans-serif; font-size: 30px;">Quem Somos</h3>
-                <p style="font-family: 'Jost', sans-serif; line-height: 1.5;">Lorem ipsum dolor sit amet, consectetur
-                    adipiscing elit. Vivamus lacinia odio vitae vestibulum</p>
+                <p style="font-family: 'Jost', sans-serif; line-height: 1.5;">
+                    Somos uma equipe empenhada em te fazer provar os mais doces sonhos</p>
 
             </div>
         </div>
@@ -107,14 +117,14 @@
         <div class="footer-content">
             <div class="social-media">
                 <h3 >REDES SOCIAIS</h3>
-                <p>@_________</p>
-                <p>(98) 9 XXXX-XXXX</p>
+                <p>@sweetdreams.80s</p>
+                <p>(98) 9 4002-7922</p>
             </div>
 
             <div class="address">
                 <h3>ENDEREÇO</h3>
-                <p>RUA X, N° X, BACABEIRA-MA</p>
-                <p style="color: #a10101">Eu vou te dar um amor desses de cinema...</p>
+                <p>RUA Humberto de Campos, BACABEIRA-MA</p>
+                <p style="color: #a10101">Eu vou te dar amor</p>
             </div>
         </div>
     </footer>
@@ -123,9 +133,31 @@
             const descricao = document.querySelector('p');
 
             titulo.addEventListener('click', function () {
-                descricao.textContent = "A Sweet Dreams taratararararararrarararararararar!";
+                descricao.textContent = "Mas se quiser, também temos alguns 'Hot Dreams' pra você ;)";
             });
         });
+        
+        document.addEventListener('DOMContentLoaded', function () {
+    const calvo = document.querySelector('.calvo');
+    const textinho = document.querySelector('.textinho');
+    const fitinha = document.querySelector('.fitinha img');
+
+    // Conteúdos alternáveis
+    const conteudo = [
+        { titulo: "Missão", texto: "Nosso compromisso é fornecer os melhores serviços para nossos clientes." },
+        { titulo: "Visão", texto: "Ser líder de mercado e referência em qualidade e inovação." },
+        { titulo: "Valores", texto: "Ética, transparência e compromisso com a sustentabilidade." }
+    ];
+
+    let indiceAtual = 0;
+
+    // Evento de clique na fita
+    fitinha.addEventListener('click', function () {
+        indiceAtual = (indiceAtual + 1) % conteudo.length; // Alterna entre 0, 1 e 2
+        calvo.textContent = conteudo[indiceAtual].titulo;
+        textinho.textContent = conteudo[indiceAtual].texto;
+    });
+});
     </script>
 </body>
 <script src="/static/script.js"></script>

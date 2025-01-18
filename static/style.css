@@ -7,7 +7,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #ecd4a4;
+    background-color: #a10101;
     padding: 0.44rem 1.25rem;
     /* 7px 20px */
     height: 6.25rem;
@@ -18,7 +18,7 @@ body {
 .logo h1 {
     font-size: clamp(1.5rem, 5vw, 3.125rem);
     /* Ajusta entre 24px e 50px baseado no tamanho da tela */
-    color: #a10101;
+    color: #ecd4a4;
     white-space: nowrap;
     /* Impede quebra de linha */
     margin: 0;
@@ -59,8 +59,9 @@ body {
     /* 450px */
     width: 25rem;
     /* 400px */
-    background-color: brown;
+    background-color: #f8c560;
     flex-shrink: 0;
+    border-radius: 5px;
 }
 
 .mascote {
@@ -73,7 +74,55 @@ body {
     position: relative;
     flex-shrink: 0;
 }
+.calvo {
+    height: 80px;
+    width: 100%;
+    background-color: #f8c560;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-family: 'Jost', sans-serif; line-height: 1.5;
+    font-weight: bold;
+ 
+    border-radius: 6px;
+}
 
+.fitinha {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    background-color: #505074;
+    height: 100%;
+    border-bottom-left-radius: 6px;
+    border-top-right-radius: 8px;
+}
+
+.fitinha img {
+    height: 90%;
+    width: 90%;
+    position: relative;
+
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.textinho {
+    width: 50%;
+    height: 100%;
+    background-color: #505074;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-family: 'Jost', sans-serif; line-height: 1.5;
+    padding-left: 10px;
+    color: white;
+    border-bottom-right-radius: 6px;
+    border-top-left-radius: 8px;
+
+}
 .fita {
     height: 6rem;
     width: 75%;
@@ -87,6 +136,7 @@ body {
     /* Centraliza a fita na tela */
     padding: 15px;
     margin-bottom: 20px;
+    border-radius: 6px;
 }
 
 .fitao {
@@ -372,13 +422,13 @@ header input {
 .maior {
     width: 328px;
     height: auto;
-    border: 2px solid #fff;
+    border: 2px solid #be4f2a;
 }
 
 .menores {
     width: 100px;
     height: auto;
-    border: 2px solid #fff;
+    border: 2px solid #be4f2a;
 }
 
 .rapaiz {
@@ -399,7 +449,8 @@ header input {
     align-items: center;
     height: 50px;
     width: max-content;
-    background-color: #fff;
+    background-color: #be4f2a;
+    color: white;
     padding-left: 10px;
     padding-right: 10px;
     border-radius: 4px;
@@ -456,12 +507,12 @@ header input {
 .bot button {
     margin: 5px;
     padding: 10px;
-    background-color: #5cb85c;
-    color: white;
+    background-color: #be4f2a;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     width: max-content;
+    color: white;
 }
 
 .reviews,
@@ -471,7 +522,7 @@ header input {
 
 .reviews h2,
 .suggestions h2 {
-    border-bottom: 2px solid #ddd;
+    border-bottom: 2px solid #a10101;
     padding-bottom: 5px;
 }
 
@@ -483,7 +534,8 @@ header input {
     border-radius: 5px;
     padding: 10px;
     margin: 10px 0;
-    background-color: #fff;
+    background-color: #be4f2a;
+    color: white;
 }
 
 .add-review-btn {
@@ -551,7 +603,14 @@ form {
     align-items: center;
     z-index: 1000;
 }
-
+.pluh{
+    cursor: pointer;
+    height: 40px;
+    width: 100px;
+    background-color: #be4f2a;
+    border-radius: 10px;
+    color: white;
+}
 .modal-content {
     background: #fff;
     padding: 20px;
@@ -559,6 +618,16 @@ form {
     width: 90%;
     max-width: 400px;
     position: relative;
+}
+.aval{
+    height: 40px;
+    width: 100px;
+    background-color: #be4f2a;
+    border-radius: 10px;
+    color: white;
+}
+.modal-content{
+    border: solid 4px #f8c560;
 }
 
 .close-btn {
