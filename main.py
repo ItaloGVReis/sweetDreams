@@ -29,14 +29,7 @@ def home():
     ]
     return render_template('index.html', produtos=produtos)
 
-# Rota para testar a conexão com o banco de dados
-# @app.route('/test-db')
-# def test_db():
-#     cursor = mysql.connection.cursor()
-#     cursor.execute('SELECT 1 + 1 AS solution')
-#     result = cursor.fetchone()
-#     cursor.close()
-#     return f'A solução é: {result[0]}'
+
 
 @app.route('/cardapio', methods=['GET', 'POST'])
 def cardapio():
@@ -133,32 +126,7 @@ def cardapio():
 
 
     
-# @app.route('/api/cardapio')
-# def avaliacao():
-#     cursor = mysql.connection.cursor()
-#     # Corrigir a consulta SQL para unir as tabelas 'products1' e 'produto_avaliacao'
-#     cursor.execute("""
-#         SELECT 
-#             produto_avaliacao.product_id, 
-#             produto_avaliacao.user_name, 
-#             produto_avaliacao.nota, 
-#             produto_avaliacao.avaliacao
-#         FROM 
-#             produto_avaliacao 
-#         JOIN products1 
-#             ON produto_avaliacao.product_id = products1.id
-#     """)
-#     resultados = cursor.fetchall()
-#     avaliacao = [
-#         {
-#             'product_id': avaliacao
-#             'user_name': avaliacao,
-#             'nota': avaliacao[2],
-#             'avaliacao': avaliacao[3]
-#         }
-#         for avaliacao in resultados
-#     ]
-#     return render_template('cardapio.html', avaliacao=avaliacao)
+
 
 
 @app.route('/crud')
@@ -212,36 +180,13 @@ def delete_product(id):
     return jsonify({'message': 'Produto deletado com sucesso!'})
 
 
-# @app.route('/api/produto_avaliacao', methods=['POST'])
-# def criar_avaliacao():
-#     # Pega os dados enviados pelo formulário 
-#     product_id = request.form.get('product_id')
-#     user_name = request.form.get('user_name')
-#     avaliacao = request.form.get('avaliacao')
-
-#     if not product_id or not user_name or not avaliacao:
-#         return jsonify({'message': 'Dados inválidos'}), 400
-
-#     try:
-#         cursor = mysql.connection.cursor()
-#         query = """
-#             INSERT INTO produto_avaliacao (product_id, user_name, avaliacao)
-#             VALUES (%s, %s, %s)
-#         """
-#         cursor.execute(query, (product_id, user_name, avaliacao))
-#         mysql.connection.commit()
-#         cursor.close()
-        
-#         return jsonify({'message': 'Avaliação criada com sucesso!'}), 201
-#     except Exception as e:
-#         return jsonify({'message': f'Erro ao salvar avaliação: {e}'}), 500
 
 
 
 
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run(debug=True)
 
     
 
