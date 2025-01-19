@@ -10,7 +10,7 @@ CREATE TABLE products (
     nome VARCHAR(255) NOT NULL,
     descricao TEXT NOT NULL,
     preco DECIMAL(10, 2) NOT NULL,
-    image_url VARCHAR(255) NOT NULL, -- Imagem principal
+    image_url VARCHAR(255) NOT NULL,
     image_url2 VARCHAR(255) NOT NULL,
     image_url3 VARCHAR(255) NOT NULL,
     image_url4 VARCHAR(255) NOT NULL,
