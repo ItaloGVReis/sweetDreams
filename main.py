@@ -11,6 +11,10 @@ app.config.from_object(Config)
 
 mysql = MySQL(app)
 
+# Adicionar diretamente a seleção do banco de dados na conexão
+cursor = mysql.connection.cursor()
+cursor.execute(f"USE {os.getenv('MYSQLDATABASE')}")
+
 # Rota para servir o index.html
 @app.route('/')
 def home():
