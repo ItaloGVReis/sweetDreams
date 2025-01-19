@@ -186,7 +186,8 @@ def delete_product(id):
 
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    port = int(os.getenv('PORT', 5000))  # Pega a porta do ambiente
+    app.run(host='0.0.0.0', port=port)
 
     
 
