@@ -8,7 +8,7 @@ class Config:
     # Carregar variáveis de ambiente
     MYSQL_HOST = os.getenv("MYSQL_HOST")  # Conexão interna (privada) do Railway
     MYSQL_USER = os.getenv("MYSQL_USER")
-    MYSQL_PASSWORD = os.getenv("MYSQL_ROOT_PASSWORD")
+    MYSQL_PASSWORD = os.getenv("MYSQL_PASSWORD")
     MYSQL_DATABASE = os.getenv("MYSQL_DATABASE")
     MYSQL_PORT = int(os.getenv("MYSQL_PORT"))
     

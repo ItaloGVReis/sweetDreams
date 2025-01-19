@@ -5,7 +5,7 @@ CREATE DATABASE sweetDreams;
 USE sweetDreams;
 
 -- Tabela de produtos
-CREATE TABLE products (
+CREATE TABLE products1 (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
     descricao TEXT NOT NULL,
