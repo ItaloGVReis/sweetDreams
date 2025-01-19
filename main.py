@@ -186,8 +186,7 @@ def delete_product(id):
 
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))  # Usa a porta fornecida pelo Render ou 5000 por padrão
-    app.run(debug=False, host="0.0.0.0", port=port)
+    app.run(debug=False)
 
     
 
