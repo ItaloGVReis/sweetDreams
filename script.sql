@@ -25,14 +25,8 @@ CREATE TABLE produto_avaliacao (
     product_id INT NOT NULL,
     user_name VARCHAR(255) NOT NULL,
     avaliacao TEXT,
-    FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
+    FOREIGN KEY (product_id) REFERENCES products1(id) ON DELETE CASCADE
 );
 
 -- Tabela de sugestões de produtos relacionados
-CREATE TABLE product_suggestions (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    product_id INT NOT NULL,
-    suggested_product_id INT NOT NULL,
-    FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE,
-    FOREIGN KEY (suggested_product_id) REFERENCES products(id) ON DELETE CASCADE
-);
+
