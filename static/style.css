@@ -629,7 +629,12 @@ form {
 .modal-content{
     border: solid 4px #f8c560;
 }
-
+.bangers-regular {
+    font-family: "Bangers", serif;
+    font-weight: 200;
+    font-style: normal;
+  }
+  
 .close-btn {
     position: absolute;
     top: 10px;

@@ -9,6 +9,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Jost:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto+Slab:wght@100..900&display=swap"
         rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Sweet Dreams</title>
 </head>
@@ -17,7 +20,7 @@
     <header class="head">
         <div class="logo">
             <a href="/">
-                <h1 style="font-size: 2.5em; font-family: 'Roboto Slab', sans-serif">SWEET DREAMS</h1>
+                <h1 class="bangers-regular">SWEET DREAMS</h1>
             </a>
         </div>
 
@@ -31,14 +34,14 @@
     <main>
         <div class="ilustra">
             <div class="cacete">
-                <div class="calvo">
+                <div class="calvo bangers-regular">
                     Missão
                 </div>
                 <div style="display: flex; height: 83%; width: 100%;">
                     <div class="fitinha">
                         <img src="/static/imagens/fitaanimada.gif" alt="fita animada" onclick="alternarConteudo()">
                     </div>
-                    <div class="textinho">
+                    <div class="textinho bangers-regular"> 
                         Nosso compromisso é fornecer os melhores serviços para nossos clientes.
                     </div>
                 </div>
@@ -51,8 +54,8 @@
 
         <div class="fita"> <!-- preta  -->
             <div class="fitao"> <!--branca-->
-                <h3 style="font-family: 'Bebas Neue', sans-serif; font-size: 30px;">Quem Somos</h3>
-                <p style="font-family: 'Jost', sans-serif; line-height: 1.5;">
+                <h3 class="bangers-regular">Quem Somos</h3>
+                <p sclass="bangers-regular">
                     Somos uma equipe empenhada em te fazer provar os mais doces sonhos</p>
 
             </div>
@@ -76,13 +79,13 @@
                 <div class="buts">
                     <div class="butaos">
                         <div class="tipos" data-filter="salgado">
-                            <h2 style="font-family: 'Jost';">Salgado</h2>
+                            <h2 class="bangers-regular">Salgado</h2>
                         </div>
                         <div class="tipos" data-filter="doce">
-                            <h2 style="font-family: 'Jost';">Doce</h2>
+                            <h2 class="bangers-regular">Doce</h2>
                         </div>
                         <div class="tipos" data-filter="bebida">
-                            <h2 style="font-family: 'Jost';">Bebida</h2>
+                            <h2 class="bangers-regular">Bebida</h2>
                         </div>
                         <img src="/static/imagens/pausa.png" alt="simbolo de pausa e play" class="simb"
                             style="margin-right: 12px;">
@@ -102,8 +105,8 @@
                         <div class="comidasum {{ produto.categoria }}">
                             <img src="{{ produto.image_url }}" alt="{{ produto.nome }}" class="photo">
                             <div>
-                                <h3 style="margin: 10px 0;">{{ produto.nome }}</h3>
-                                <p style="margin: 0;">{{ produto.descricao }}</p>
+                                <h3 style="margin: 10px 0;" class="bangers-regular">{{ produto.nome }}</h3>
+                                <p style="margin: 0;" class="bangers-regular">{{ produto.descricao }}</p>
                             </div>
                         </div>
                     </a>
@@ -118,17 +121,16 @@
         <div class="footer-line"></div>
         <div class="footer-content">
             <div class="social-media">
-                <h3 >REDES SOCIAIS</h3>
-                <p><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 24 24">
-                    <path d="M 8 3 C 5.243 3 3 5.243 3 8 L 3 16 C 3 18.757 5.243 21 8 21 L 16 21 C 18.757 21 21 18.757 21 16 L 21 8 C 21 5.243 18.757 3 16 3 L 8 3 z M 8 5 L 16 5 C 17.654 5 19 6.346 19 8 L 19 16 C 19 17.654 17.654 19 16 19 L 8 19 C 6.346 19 5 17.654 5 16 L 5 8 C 5 6.346 6.346 5 8 5 z M 17 6 A 1 1 0 0 0 16 7 A 1 1 0 0 0 17 8 A 1 1 0 0 0 18 7 A 1 1 0 0 0 17 6 z M 12 7 C 9.243 7 7 9.243 7 12 C 7 14.757 9.243 17 12 17 C 14.757 17 17 14.757 17 12 C 17 9.243 14.757 7 12 7 z M 12 9 C 13.654 9 15 10.346 15 12 C 15 13.654 13.654 15 12 15 C 10.346 15 9 13.654 9 12 C 9 10.346 10.346 9 12 9 z"></path>
-                </svg>@sweetdreams.80s</p>
+                <h3 class="bangers-regular">REDES SOCIAIS</h3>
+                <p class="bangers-regular"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" >
+                    </svg>@sweetdreams.80s</p>
                 <p>(98) 9 4002-7922</p>
             </div>
 
             <div class="address">
-                <h3>ENDEREÇO</h3>
-                <p>RUA Humberto de Campos, BACABEIRA-MA</p>
-                <p style="color: #a10101">Eu vou te dar amor</p>
+                <h3 class="bangers-regular">ENDEREÇO</h3>
+                <p class="bangers-regular">"RUA Humberto de Campos, BACABEIRA-MA</p>
+                <p style="color: #a10101" class="bangers-regular">Eu vou te dar amor</p>
             </div>
         </div>
     </footer>

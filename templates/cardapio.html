@@ -14,7 +14,7 @@
     <header class="head">
         <div class="logo">
             <a href="/">
-                <h1>SWEET DREAMS</h1>
+                <h1 class="bangers-regular">SWEET DREAMS</h1>
             </a>
         </div>
 
@@ -38,20 +38,20 @@
 
             <div class="product-details">
                 <div class="bruh">
-                    <h1>{{produto.nome}}</h1>
+                    <h1 class="bangers-regular">{{produto.nome}}</h1>
                     <img src="/static/imagens/pausa.png" alt="pausa dnv" class="ah">
                 </div>
-                <p class="description">{{produto.descricao}}</p>
-                <p class="price">R${{produto.preco}}</p>
-                <button class="pluh" onclick="serio()">Compre Agora</button>
+                <p class="description bangers-regular">{{produto.descricao}}</p>
+                <p class="price bangers-regular">R${{produto.preco}}</p>
+                <button class="pluh bangers-regular"onclick="serio()">Compre Agora</button>
                 
                 <div class="add-ons">
                     <div class="adicionar">
                         <img src="/static/imagens/adicionais.png" alt="adicionais" class="imagem-adicionais">
                     </div>
                     <div class="bot">
-                        <button>{{produto.adicional}}</button>
-                        <button>{{produto.adicional2}}</button>
+                        <button class="bangers-regular">{{produto.adicional}}</button>
+                        <button class="bangers-regular">{{produto.adicional2}}</button>
                     </div>
                 </div>
                 
@@ -61,39 +61,39 @@
 
         <!-- Reviews -->
         <section class="reviews">
-            <h2>Avaliações</h2>
+            <h2 class="bangers-regular">Avaliações</h2>
             {% if reviews %}
 
             {% for review in reviews %}
             <div class="review-item">
-                <p><strong>Usuário: </strong>{{ review[0] }} <br>
-                    <strong>Avaliação: </strong>{{ review[1] }}
+                <p class="bangers-regular"><strong class="bangers-regular">Usuário: </strong>{{ review[0] }} <br>
+                    <strong class="bangers-regular">Avaliação: </strong>{{ review[1] }}
                 </p>
             </div>
 
             {% endfor %}
 
             {% else %}
-            <p>Não há avaliações para este produto.</p>
+            <p class="bangers-regular">Não há avaliações para este produto.</p>
             {% endif %}
-            <button class="add-review-btn" onclick="showModal()">Adicionar Avaliação</button>
+            <button class="add-review-btn bangers-regular" onclick="showModal()">Adicionar Avaliação</button>
         </section>
 
         <div class="review-modal" style="display: none;">
             <div class="modal-content">
                 <button class="close-btn" onclick="closeModal()">&times;</button>
-                <h3>Adicionar Avaliação</h3>
+                <h3 class="bangers-regular">Adicionar Avaliação</h3>
                 <form id="review-form" method="POST">
 
                     <input type="hidden" id="product-id" name="product_id" value="{{ produto.id }}">
 
-                    <label for="review-name">Nome:</label>
+                    <label for="review-name" class="bangers-regular">Nome:</label>
                     <input type="text" id="user_name" name="user_name" required>
 
-                    <label for="review-text">Avaliação:</label>
+                    <label for="review-text" class="bangers-regular">Avaliação:</label>
                     <textarea id="avaliacao" name="avaliacao" rows="4" required></textarea>
 
-                    <button type="submit" class="aval">Enviar Avaliação</button>
+                    <button type="submit" class="aval bangers-regular">Enviar Avaliação</button>
                 </form>
             </div>
         </div>
@@ -102,7 +102,7 @@
 
         <!-- Suggestions -->
         <section class="suggestions">
-            <h2>Sugestões</h2>
+            <h2 class="bangers-regular">Sugestões</h2>
             <div class="carousel">
                 {% for foto in fotos %}
                 <a href="/cardapio?id={{foto.id}}"><img src="{{foto.image_url}}" alt="Sugestão {{foto.id}}"></a>
@@ -117,15 +117,16 @@
         <div class="footer-line"></div>
         <div class="footer-content">
             <div class="social-media">
-                <h3>REDES SOCIAIS</h3>
-                <p>@sweetdreams.80s</p>
-                <p>(98) 9 4002-7922</p>
+                <h3 class="bangers-regular">REDES SOCIAIS</h3>
+                <p class="bangers-regular"> <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" >
+                </svg>@sweetdreams.80s</p>
+                <p class="bangers-regular">(98) 9 4002-7922</p>
             </div>
 
             <div class="address">
-                <h3>ENDEREÇO</h3>
-                <p>RUA Humberto de Campos, BACABEIRA-MA</p>
-                <p style="color: #a10101">é segredo!</p>
+                <h3 class="bangers-regular">ENDEREÇO</h3>
+                <p class="bangers-regular">RUA Humberto de Campos, BACABEIRA-MA</p>
+                <p style="color: #a10101" class="bangers-regular">é segredo!</p>
                 
                 
 
