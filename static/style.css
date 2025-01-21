@@ -106,6 +106,7 @@ body {
 
     cursor: pointer;
     border-radius: 4px;
+    box-shadow: 0 8px 15px #0275d8;
 }
 
 .textinho {
@@ -162,18 +163,7 @@ body {
     /* Removendo qualquer margem superior do parágrafo */
 }
 
-/* .fita {
-    height: 9.375rem; (150px )
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
 
-.fitao {
-    height: 7.5rem; ( 120px )
-    width: 77%;
-    background-color: black;
-} */
 
 .cardapio {
     height: 25rem;
@@ -337,7 +327,7 @@ body {
 }
 .comidasum:hover{
     transform: translateY(-10px);
-    box-shadow: 0 8px 15px #f8c560;
+    box-shadow: 0 10px 17px #f8c560;
 
 }
 
@@ -345,9 +335,9 @@ a {
     text-decoration: none;
 }
 
-.tipo :hover {
+.tipos :hover {
     transform: translateY(-10px);
-    box-shadow: 0 8px 15px #f8c560;
+    box-shadow: 0 10px 17px #f8c560;
 }
 
 .chato {
@@ -544,8 +534,15 @@ header input {
     margin: 10px 0;
     background-color: #be4f2a;
     color: white;
+    box-shadow: 0 8px 15px #a10101;
 }
-
+.pluh{
+    box-shadow: 0 8px 15px #a10101;
+}
+.pluh:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 8px 15px #a10101;
+}
 .add-review-btn {
     display: block;
     margin: 20px 0 0 auto;
@@ -555,6 +552,11 @@ header input {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    box-shadow: 0 8px 15px black;
+}
+.add-review-btn:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 8px 15px black;
 }
 
 .carousel {
@@ -569,6 +571,11 @@ header input {
     margin: 0 10px;
     border-radius: 5px;
     border: 1px solid #a10101;
+    box-shadow: 0 8px 15px #620100;
+}
+.carousel img:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 8px 15px #620100;
 }
 
 .carousel::-webkit-scrollbar {
