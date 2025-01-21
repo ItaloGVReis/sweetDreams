@@ -256,6 +256,12 @@ body {
     border-radius: 0.25rem;
     /* 4px */
     padding-left: 15px;
+    box-shadow: 0 4px 8px #f8c560;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.butaos:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 10px 17px #f8c560;
 }
 
 .tipos {
@@ -333,11 +339,6 @@ body {
 
 a {
     text-decoration: none;
-}
-
-.tipos :hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 17px #f8c560;
 }
 
 .chato {
@@ -421,13 +422,19 @@ header input {
     width: 328px;
     height: auto;
     border: 2px solid #be4f2a;
+    box-shadow: 0 4px 8px #f8c560;
+
 }
+
+
 
 .menores {
     width: 100px;
     height: auto;
     border: 2px solid #be4f2a;
+    box-shadow: 0 4px 8px #f8c560;
 }
+
 
 .rapaiz {
     display: flex;
@@ -528,7 +535,6 @@ header input {
 .suggestion-item {
     display: flex;
     align-items: center;
-    border: 1px solid #ddd;
     border-radius: 5px;
     padding: 10px;
     margin: 10px 0;
@@ -537,11 +543,12 @@ header input {
     box-shadow: 0 8px 15px #a10101;
 }
 .pluh{
-    box-shadow: 0 8px 15px #a10101;
+    box-shadow: 0 4px 8px #a10101;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .pluh:hover{
     transform: translateY(-10px);
-    box-shadow: 0 8px 15px #a10101;
+    box-shadow: 0 10px 17px #a10101;
 }
 .add-review-btn {
     display: block;
@@ -571,11 +578,12 @@ header input {
     margin: 0 10px;
     border-radius: 5px;
     border: 1px solid #a10101;
-    box-shadow: 0 8px 15px #620100;
+
+    transition: transform 0.3s ease;
 }
 .carousel img:hover{
     transform: translateY(-10px);
-    box-shadow: 0 8px 15px #620100;
+
 }
 
 .carousel::-webkit-scrollbar {
