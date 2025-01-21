@@ -256,11 +256,9 @@ body {
     border-radius: 0.25rem;
     /* 4px */
     padding-left: 15px;
-    box-shadow: 0 4px 8px #f8c560;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.butaos:hover{
-    transform: translateY(-10px);
+
+.add{
     box-shadow: 0 10px 17px #f8c560;
 }
 
@@ -277,6 +275,12 @@ body {
     cursor: pointer;
     border-radius: 0.25rem;
     /* 4px */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px #f8c560;
+}
+.tipos:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 10px 17px #f8c560;
 }
 
 .simb {
@@ -459,6 +463,7 @@ header input {
     padding-left: 10px;
     padding-right: 10px;
     border-radius: 4px;
+    box-shadow: 0 10px 17px #f8c560;
 }
 
 .bruh h1 {
@@ -559,7 +564,8 @@ header input {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    box-shadow: 0 8px 15px black;
+    box-shadow: 0 8px 15px rgb(58, 57, 57);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .add-review-btn:hover{
     transform: translateY(-10px);
@@ -578,13 +584,8 @@ header input {
     margin: 0 10px;
     border-radius: 5px;
     border: 1px solid #a10101;
-
-    transition: transform 0.3s ease;
 }
-.carousel img:hover{
-    transform: translateY(-10px);
 
-}
 
 .carousel::-webkit-scrollbar {
     display: none;
@@ -772,11 +773,7 @@ form {
         width: 30rem;
     }
 
-    .tipos {
-        width: 50%;
-        /* Botões ocupam largura total */
-        text-align: center;
-    }
+
 }
 
 @media (max-width: 480px) {
