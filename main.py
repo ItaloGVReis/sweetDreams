@@ -158,10 +158,14 @@ def create_product():
             file.save(filepath)
             
             # Atribui a URL correta para a imagem
-            if i == 1:
-                image_urls[0] = f'/static/imagens/{filename}'  # Primeira imagem vai para image_url
-            else:
-                image_urls[i - 1] = f'/static/imagens/{filename}'  # Outras imagens vão para image_url2, image_url3, image_url4
+            if i == 1:  # A primeira imagem vai para image_url
+                image_urls[0] = f'/static/imagens/{filename}'  
+            elif i == 2:  # A segunda imagem vai para image_url2
+                image_urls[1] = f'/static/imagens/{filename}'
+            elif i == 3:  # A terceira imagem vai para image_url3
+                image_urls[2] = f'/static/imagens/{filename}'
+            elif i == 4:  # A quarta imagem vai para image_url4
+                image_urls[3] = f'/static/imagens/{filename}'
 
     cursor = mysql.connection.cursor()
     query = """
@@ -183,6 +187,7 @@ def create_product():
     mysql.connection.commit()
     cursor.close()
     return jsonify({'message': 'Produto criado com sucesso!'})
+
 
 
 # Ler todos os produtos
