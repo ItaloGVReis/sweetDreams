@@ -24,10 +24,10 @@
             </a>
         </div>
         <div class="parece">
-            <audio id="meuAudio" src="/static/imagens/Eurythmics - Sweet Dreams (Are Made of This) (Remastered).mp3"></audio>
-        <div class="audio-player">
-                <button id="playPause" class="bangers-regular">Play</button>
-        </div>
+                <audio id="meuAudio" src="/static/imagens/Eurythmics - Sweet Dreams (Are Made of This) (Remastered).mp3"></audio>
+            <div class="audio-player">
+                    <button id="playPause" class="bangers-regular">Play</button>
+            </div>
 
         </div>
    
@@ -178,6 +178,18 @@
         calvo.textContent = conteudo[indiceAtual].titulo;
         textinho.textContent = conteudo[indiceAtual].texto;
     });
+});
+const audio = document.getElementById('meuAudio');
+const playPauseButton = document.getElementById('playPause');
+
+playPauseButton.addEventListener('click', () => {
+    if (audio.paused) {
+        audio.play();
+        playPauseButton.textContent = 'Pause';
+    } else {
+        audio.pause();
+        playPauseButton.textContent = 'Play';
+    }
 });
     </script>
 </body>

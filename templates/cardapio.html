@@ -26,6 +26,7 @@
         <div class="audio-player">
                 <button id="playPause" class="bangers-regular">Play</button>
         </div>
+        </div>
 
         <div class="simbolos">
             <img src="/static/imagens/logo.PNG" alt="icone" class="hbutao">
@@ -143,6 +144,20 @@
     </footer>
 
 </body>
+<script>
+    const audio = document.getElementById('meuAudio');
+const playPauseButton = document.getElementById('playPause');
+
+playPauseButton.addEventListener('click', () => {
+    if (audio.paused) {
+        audio.play();
+        playPauseButton.textContent = 'Pause';
+    } else {
+        audio.pause();
+        playPauseButton.textContent = 'Play';
+    }
+});
+</script>
 <script src="/static/script.js"></script>
 
 </html>

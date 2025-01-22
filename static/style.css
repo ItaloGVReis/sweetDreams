@@ -29,12 +29,12 @@ body {
     border-radius: 5px;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 8px #a10101;
+    box-shadow: 0 4px 8px #f8c560;
 }
 
 .audio-player button:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 17px #a10101;
+    box-shadow: 0 10px 17px #f8c560;
 }
 
 .logo h1 {
