@@ -125,15 +125,17 @@ function editProduct(id, nome, descricao, preco, image_url, image_url2, image_ur
     document.getElementById('nome').value = nome;
     document.getElementById('descricao').value = descricao;
     document.getElementById('preco').value = preco;
-    document.getElementById('image_url').value = image_url;
-    document.getElementById('image_url2').value = image_url2;
-    document.getElementById('image_url3').value = image_url3;
-    document.getElementById('image_url4').value = image_url4;
     document.getElementById('adicional').value = adicional;
     document.getElementById('adicional2').value = adicional2;
     document.getElementById('categoria').value = categoria;
 
+    // Exibir imagens atuais ao lado dos campos de upload
+    document.getElementById('image_url_preview').src = image_url;
+    document.getElementById('image_url2_preview').src = image_url2;
+    document.getElementById('image_url3_preview').src = image_url3;
+    document.getElementById('image_url4_preview').src = image_url4;
 }
+
 
 // Deletar produto
 function deleteProduct(id) {

@@ -206,9 +206,16 @@ def update_product(id):
     data = request.form  # Dados do formulário
     files = request.files  # Arquivos de imagem
 
+    # Consultar as imagens atuais do produto
+    cursor = mysql.connection.cursor()
+    query = "SELECT image_url, image_url2, image_url3, image_url4 FROM products1 WHERE id = %s"
+    cursor.execute(query, (id,))
+    current_images = cursor.fetchone()  # Recupera as imagens atuais do banco
+    cursor.close()
+
     # Variáveis para armazenar as URLs das imagens
-    image_url = ''  # Para a primeira imagem (sem número)
-    image_urls = ['', '', '']  # Para image_url2, image_url3, image_url4
+    image_url = current_images[0]  # Inicializa com o valor atual da imagem
+    image_urls = list(current_images[1:])  # Para image_url2, image_url3, image_url4
 
     # Verifica se a primeira imagem foi enviada e salva
     file = files.get('image_url')  # Primeira imagem sem número
@@ -216,7 +223,7 @@ def update_product(id):
         filename = secure_filename(file.filename)
         filepath = os.path.join(UPLOAD_FOLDER, filename)
         file.save(filepath)
-        image_url = f'/static/imagens/{filename}'
+        image_url = f'/static/imagens/{filename}'  # Atualiza com a nova imagem
 
     # Verifica se as outras imagens foram enviadas (image_url2, image_url3, image_url4)
     for i in range(2, 5):  # Para image_url2 até image_url4
@@ -225,7 +232,7 @@ def update_product(id):
             filename = secure_filename(file.filename)
             filepath = os.path.join(UPLOAD_FOLDER, filename)
             file.save(filepath)
-            image_urls[i - 2] = f'/static/imagens/{filename}'  # Atribui as URLs
+            image_urls[i - 2] = f'/static/imagens/{filename}'  # Atribui as novas URLs se houver imagens
 
     # Atualizar no banco de dados
     cursor = mysql.connection.cursor()
