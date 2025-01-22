@@ -264,6 +264,8 @@ body {
 .aparece{
     display: none;
 }
+
+
 .tipos {
     display: flex;
     align-items: center;
@@ -816,6 +818,9 @@ form {
 /*para ocultar a fita cassete*/
 @media (max-width: 768px) {
     .fita {
+        display: none;
+    }
+    .parece{
         display: none;
     }
     .aparece{
