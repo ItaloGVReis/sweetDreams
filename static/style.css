@@ -261,7 +261,9 @@ body {
 .add{
     box-shadow: 0 10px 17px #f8c560;
 }
-
+.aparece{
+    display: none;
+}
 .tipos {
     display: flex;
     align-items: center;
@@ -815,6 +817,9 @@ form {
 @media (max-width: 768px) {
     .fita {
         display: none;
+    }
+    .aparece{
+        display: flex;
     }
 }
 @media (max-width: 680px){
