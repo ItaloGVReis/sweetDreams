@@ -143,30 +143,31 @@ def crud():
 # Criar um novo produto
 @app.route('/api/products1', methods=['POST'])
 def create_product():
-    data = request.form
-    files = request.files
+    data = request.form  # Dados do formulário
+    files = request.files  # Arquivos de imagem
 
-    # Inicializa uma lista para armazenar as URLs das imagens
-    image_urls = ['', '', '', '']  # Imagens são inicialmente vazias
+    # Variáveis para armazenar as URLs das imagens
+    image_url = ''  # Para a primeira imagem (sem número)
+    image_urls = ['', '', '']  # Para image_url2, image_url3, image_url4
 
-    # Verifica se os arquivos de imagem foram enviados
-    for i in range(1, 5):  # Para image_url até image_url4
+    # Verifica se a primeira imagem foi enviada e salva
+    file = files.get('image_url')  # Primeira imagem sem número
+    if file and allowed_file(file.filename):
+        filename = secure_filename(file.filename)
+        filepath = os.path.join(UPLOAD_FOLDER, filename)
+        file.save(filepath)
+        image_url = f'/static/imagens/{filename}'
+
+    # Verifica se as outras imagens foram enviadas (image_url2, image_url3, image_url4)
+    for i in range(2, 5):  # Para image_url2 até image_url4
         file = files.get(f'image_url{i}')
         if file and allowed_file(file.filename):  # Se o arquivo for válido
             filename = secure_filename(file.filename)
-            filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            filepath = os.path.join(UPLOAD_FOLDER, filename)
             file.save(filepath)
-            
-            # Atribui a URL correta para a imagem
-            if i == 1:  # A primeira imagem vai para image_url
-                image_urls[0] = f'/static/imagens/{filename}'  
-            elif i == 2:  # A segunda imagem vai para image_url2
-                image_urls[1] = f'/static/imagens/{filename}'
-            elif i == 3:  # A terceira imagem vai para image_url3
-                image_urls[2] = f'/static/imagens/{filename}'
-            elif i == 4:  # A quarta imagem vai para image_url4
-                image_urls[3] = f'/static/imagens/{filename}'
+            image_urls[i - 2] = f'/static/imagens/{filename}'  # Atribui as URLs
 
+    # Inserir no banco de dados
     cursor = mysql.connection.cursor()
     query = """
         INSERT INTO products1 (nome, descricao, preco, image_url, image_url2, image_url3, image_url4, adicional, adicional2, categoria)
@@ -176,10 +177,10 @@ def create_product():
         data['nome'],
         data['descricao'],
         data['preco'],
-        image_urls[0],  # image_url (primeira imagem)
-        image_urls[1],  # image_url2
-        image_urls[2],  # image_url3
-        image_urls[3],  # image_url4
+        image_url,  # image_url (primeira imagem)
+        image_urls[0],  # image_url2
+        image_urls[1],  # image_url3
+        image_urls[2],  # image_url4
         data['adicional'],
         data['adicional2'],
         data['categoria']
@@ -202,32 +203,31 @@ def get_products1():
 # Atualizar um produto existente
 @app.route('/api/products1/<int:id>', methods=['PUT'])
 def update_product(id):
-    data = request.form  # Usando request.form para capturar os dados do formulário
-    files = request.files  # Usando request.files para capturar os arquivos de imagem
+    data = request.form  # Dados do formulário
+    files = request.files  # Arquivos de imagem
 
-    # Inicializa uma lista para armazenar as URLs das imagens
-    image_urls = ['', '', '', '']  # Imagens são inicialmente vazias
+    # Variáveis para armazenar as URLs das imagens
+    image_url = ''  # Para a primeira imagem (sem número)
+    image_urls = ['', '', '']  # Para image_url2, image_url3, image_url4
 
-    # Verifica se os arquivos de imagem foram enviados e atualiza as URLs
-    for i in range(1, 5):  # Para image_url até image_url4
+    # Verifica se a primeira imagem foi enviada e salva
+    file = files.get('image_url')  # Primeira imagem sem número
+    if file and allowed_file(file.filename):
+        filename = secure_filename(file.filename)
+        filepath = os.path.join(UPLOAD_FOLDER, filename)
+        file.save(filepath)
+        image_url = f'/static/imagens/{filename}'
+
+    # Verifica se as outras imagens foram enviadas (image_url2, image_url3, image_url4)
+    for i in range(2, 5):  # Para image_url2 até image_url4
         file = files.get(f'image_url{i}')
         if file and allowed_file(file.filename):  # Se o arquivo for válido
             filename = secure_filename(file.filename)
             filepath = os.path.join(UPLOAD_FOLDER, filename)
             file.save(filepath)
+            image_urls[i - 2] = f'/static/imagens/{filename}'  # Atribui as URLs
 
-            # Atribui a URL correta para a imagem
-            if i == 1:  # A primeira imagem vai para image_url
-                image_urls[0] = f'/static/imagens/{filename}'
-            elif i == 2:  # A segunda imagem vai para image_url2
-                image_urls[1] = f'/static/imagens/{filename}'
-            elif i == 3:  # A terceira imagem vai para image_url3
-                image_urls[2] = f'/static/imagens/{filename}'
-            elif i == 4:  # A quarta imagem vai para image_url4
-                image_urls[3] = f'/static/imagens/{filename}'
-
-    # Caso não tenha imagem enviada, você pode manter as URLs atuais (se necessário).
-    # Por exemplo, se não enviar nenhuma imagem, as URLs podem permanecer vazias ou não alterar.
+    # Atualizar no banco de dados
     cursor = mysql.connection.cursor()
     query = """
         UPDATE products1 
@@ -238,10 +238,10 @@ def update_product(id):
         data['nome'],
         data['descricao'],
         data['preco'],
-        image_urls[0],  # image_url (primeira imagem)
-        image_urls[1],  # image_url2
-        image_urls[2],  # image_url3
-        image_urls[3],  # image_url4
+        image_url,  # image_url (primeira imagem)
+        image_urls[0],  # image_url2
+        image_urls[1],  # image_url3
+        image_urls[2],  # image_url4
         data['adicional'],
         data['adicional2'],
         data['categoria'],
@@ -250,6 +250,7 @@ def update_product(id):
     mysql.connection.commit()
     cursor.close()
     return jsonify({'message': 'Produto atualizado com sucesso!'})
+
 
 # Deletar um produto
 @app.route('/api/products1/<int:id>', methods=['DELETE'])
