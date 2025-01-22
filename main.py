@@ -3,6 +3,7 @@ from flask_mysqldb import MySQL
 from config import Config
 import os
 from dotenv import load_dotenv
+from werkzeug.utils import secure_filename
 
 load_dotenv()
 
@@ -15,9 +16,16 @@ app.config['MYSQL_PASSWORD'] = os.getenv('MYSQLPASSWORD')
 app.config['MYSQL_DB'] = os.getenv('MYSQLDATABASE')
 app.config['MYSQL_PORT'] = int(os.getenv('MYSQLPORT'))
 
+UPLOAD_FOLDER = 'static/imagens'
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
+
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
 mysql = MySQL(app)
 
-# Adicionar diretamente a seleção do banco de dados na conexão
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
 
 
 # Rota para servir o index.html
@@ -128,16 +136,6 @@ def cardapio():
         return f"Erro ao buscar o produto: {e}", 500
 
 
-
-
-
-
-
-
-    
-
-
-
 @app.route('/crud')
 def crud():
     return render_template('crud.html')
@@ -145,10 +143,38 @@ def crud():
 # Criar um novo produto
 @app.route('/api/products1', methods=['POST'])
 def create_product():
-    data = request.json
+    data = request.form
+    files = request.files
+
+    # Verifica se os arquivos de imagem foram enviados
+    image_urls = []
+    for i in range(1, 5):  # Para image_url até image_url4
+        file = files.get(f'image_url{i}')
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            file.save(filepath)
+            image_urls.append(f'/static/imagens/{filename}')
+        else:
+            image_urls.append('')  # Caso não tenha imagem
+
     cursor = mysql.connection.cursor()
-    query = "INSERT INTO products1 (nome, descricao, preco, image_url, image_url2, image_url3, image_url4, adicional, adicional2, categoria) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
-    cursor.execute(query, (data['nome'], data['descricao'], data['preco'], data['image_url'], data['image_url2'], data['image_url3'], data['image_url4'], data['adicional'], data['adicional2'], data['categoria']))
+    query = """
+        INSERT INTO products1 (nome, descricao, preco, image_url, image_url2, image_url3, image_url4, adicional, adicional2, categoria)
+        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+    """
+    cursor.execute(query, (
+        data['nome'],
+        data['descricao'],
+        data['preco'],
+        image_urls[0],  # image_url
+        image_urls[1],  # image_url2
+        image_urls[2],  # image_url3
+        image_urls[3],  # image_url4
+        data['adicional'],
+        data['adicional2'],
+        data['categoria']
+    ))
     mysql.connection.commit()
     cursor.close()
     return jsonify({'message': 'Produto criado com sucesso!'})

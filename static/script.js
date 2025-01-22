@@ -87,37 +87,33 @@ function loadproducts1() {
 // Adicionar/Atualizar produto
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const id = document.getElementById('product-id').value.trim(); // Certifica-se de que o ID está limpo
+    const id = document.getElementById('product-id').value.trim();
     const method = id ? 'PUT' : 'POST';
     const url = id ? `/api/products1/${id}` : '/api/products1';
-    const productData = {
-        nome: document.getElementById('nome').value,
-        descricao: document.getElementById('descricao').value,
-        preco: parseFloat(document.getElementById('preco').value),
-        image_url: document.getElementById('image_url').value,
-        image_url2: document.getElementById('image_url2').value,
-        image_url3: document.getElementById('image_url3').value,
-        image_url4: document.getElementById('image_url4').value,
-        adicional: document.getElementById('adicional').value,
-        adicional2: document.getElementById('adicional2').value,
-        categoria: document.getElementById('categoria').value
-    };
+
+    const productData = new FormData();
+    productData.append('nome', document.getElementById('nome').value);
+    productData.append('descricao', document.getElementById('descricao').value);
+    productData.append('preco', parseFloat(document.getElementById('preco').value));
+    productData.append('adicional', document.getElementById('adicional').value);
+    productData.append('adicional2', document.getElementById('adicional2').value);
+    productData.append('categoria', document.getElementById('categoria').value);
+
+    // Adicionando as imagens
+    productData.append('image_url', document.getElementById('image_url').files[0]);
+    productData.append('image_url2', document.getElementById('image_url2').files[0]);
+    productData.append('image_url3', document.getElementById('image_url3').files[0]);
+    productData.append('image_url4', document.getElementById('image_url4').files[0]);
 
     fetch(url, {
         method,
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(productData),
+        body: productData,
     })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Erro na requisição: ${response.statusText}`);
-            }
-            return response.json();
-        })
+        .then(response => response.json())
         .then(data => {
             alert(data.message || 'Produto atualizado com sucesso!');
             form.reset();
-            loadproducts1(); // Certifique-se de que esta função está implementada corretamente
+            loadproducts1(); // Atualiza a lista de produtos
         })
         .catch(error => console.error('Erro:', error));
 });
