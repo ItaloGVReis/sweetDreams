@@ -1,6 +1,7 @@
 body {
     margin: 0 auto;
     background-color: #fff1d1;
+    background-image: url(/static/imagens/Design\ sem\ nome.png);
 }
 
 .head {
@@ -612,7 +613,10 @@ td {
     padding: 8px;
     text-align: left;
 }
-
+.audio{
+    background-color: #a10101;
+    color: white;
+}
 form {
     margin-top: 20px;
 }
