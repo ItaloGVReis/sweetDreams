@@ -849,8 +849,7 @@ form {
         display: none;
     }
     .aparece{
-        display: flex;
-        flex-direction: column;
+        display: block;
     }
 }
 @media (max-width: 680px){
