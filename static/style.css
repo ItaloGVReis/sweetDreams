@@ -124,7 +124,7 @@ body {
 .fitinha img {
     height: 90%;
     width: 90%;
-    position: relative;
+    position: relative; 
 
     cursor: pointer;
     border-radius: 4px;
