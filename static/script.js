@@ -50,8 +50,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-const form = document.getElementById('product-form');
-const productList = document.getElementById('product-list');
 
 // Carregar produtos
 function loadproducts1() {

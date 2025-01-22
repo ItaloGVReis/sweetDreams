@@ -771,13 +771,13 @@ tbody tr:hover {
     color: white;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
     background-color: rgba(190, 79, 42, 0.8); /* Fundo semi-transparente para contraste */
-    padding: 10px 20px;
+    padding: 5px 10px;
     border-radius: 10px;
     border: 2px solid white;
     display: inline-block; /* Para ajustar ao conteúdo */
-    font-size: 2rem; /* Ajuste para tamanhos maiores */
+    font-size: 1rem; /* Ajuste para tamanhos maiores */
     text-align: center;
-    margin: 20px 0;
+    margin: 9px 0;
 }
 /* Responsive Table (Vertical View on Mobile) */
 @media (max-width: 768px) {
