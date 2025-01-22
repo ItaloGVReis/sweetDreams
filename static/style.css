@@ -820,6 +820,7 @@ form {
     }
     .aparece{
         display: flex;
+        flex-direction: column;
     }
 }
 @media (max-width: 680px){
