@@ -723,7 +723,7 @@ input[type="text"], input[type="number"], input[type="file"] {
     font-size: 14px;
 }
 
-button {
+.buton {
     grid-column: span 2;
     padding: 10px 20px;
     background-color: #be4f2a;
@@ -734,7 +734,7 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+.buton:hover {
     background-color: #a94420;
 }
 

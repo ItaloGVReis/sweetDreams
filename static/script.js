@@ -75,8 +75,8 @@ function loadproducts1() {
                         <td data-label="Adicional 2">${product[9]}</td>
                         <td data-label="Categoria">${product[10]}</td>
                         <td data-label="Ações">
-                            <button onclick="editProduct(${product[0]})">Editar</button>
-                            <button onclick="deleteProduct(${product[0]})">Deletar</button>
+                            <button onclick="editProduct(${product[0]})"  class="buton">Editar</button>
+                            <button onclick="deleteProduct(${product[0]})"  class="buton">Deletar</button>
                         </td>
                     </tr>
                 `;
