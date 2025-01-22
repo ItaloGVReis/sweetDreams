@@ -698,29 +698,43 @@ form {
     cursor: pointer;
 }
 /* ------------------------crud-------------------------- */
-.form-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-bottom: 20px;
+form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
 }
 
-.form-group input, .form-group button {
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="text"], input[type="number"], input[type="file"] {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 16px;
-    flex: 1;
-    min-width: 200px;
+    font-size: 14px;
 }
 
-.form-group button {
+button {
+    grid-column: span 2;
+    padding: 10px 20px;
     background-color: #be4f2a;
     color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
     cursor: pointer;
 }
 
-.form-group button:hover {
+button:hover {
     background-color: #a94420;
 }
 
@@ -731,25 +745,58 @@ table {
     margin-top: 20px;
     background-color: #be4f2a;
     color: white;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
-table, th, td {
-    border: 1px solid #fff;
+thead {
+    background-color: #a94420;
 }
 
 th, td {
     padding: 10px;
     text-align: left;
-}
-
-th {
-    background-color: #a94420;
-    text-transform: uppercase;
+    border: 1px solid #fff;
 }
 
 td img {
-    border-radius: 5px;
     max-width: 50px;
+    border-radius: 5px;
+}
+
+tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive Table (Vertical View on Mobile) */
+@media (max-width: 768px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+        width: 100%;
+    }
+
+    thead tr {
+        display: none;
+    }
+
+    tbody tr {
+        margin-bottom: 15px;
+        border-bottom: 2px solid white;
+    }
+
+    tbody td {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 5px;
+        font-size: 14px;
+    }
+
+    tbody td:before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #fff;
+        text-transform: uppercase;
+    }
 }
 @media (max-width: 606px) {
     .hbutao {

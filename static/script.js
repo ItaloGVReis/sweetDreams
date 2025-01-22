@@ -62,20 +62,20 @@ function loadproducts1() {
             productList.innerHTML = '';
             data.forEach(product => {
                 productList.innerHTML += `
-                    <tr class="bangers-regular">
-                        <td>${product[0]}</td>
-                        <td>${product[1]}</td>
-                        <td>${product[2]}</td>
-                        <td>R$ ${product[3]}</td>
-                        <td><img src="${product[4]}" alt="${product[4]}" width="50"></td>
-                        <td><img src="${product[5]}" alt="${product[5]}" width="50"></td>
-                        <td><img src="${product[6]}" alt="${product[6]}" width="50"></td>
-                        <td><img src="${product[7]}" alt="${product[7]}" width="50"></td>
-                        <td>${product[8]}</td>
-                        <td>${product[9]}</td>
-                        <td>${product[10]}</td>
-                        <td>
-                            <button onclick="editProduct(${product[0]}, '${product[1]}', '${product[2]}', ${product[3]}, '${product[4]}', '${product[5]}', '${product[6]}', '${product[7]}', '${product[8]}', '${product[9]}', '${product[10]}')">Editar</button>
+                    <tr>
+                        <td data-label="ID">${product[0]}</td>
+                        <td data-label="Nome">${product[1]}</td>
+                        <td data-label="Descrição">${product[2]}</td>
+                        <td data-label="Preço">R$ ${product[3]}</td>
+                        <td data-label="Imagem"><img src="${product[4]}" alt="Imagem 1"></td>
+                        <td data-label="Imagem 2"><img src="${product[5]}" alt="Imagem 2"></td>
+                        <td data-label="Imagem 3"><img src="${product[6]}" alt="Imagem 3"></td>
+                        <td data-label="Imagem 4"><img src="${product[7]}" alt="Imagem 4"></td>
+                        <td data-label="Adicional">${product[8]}</td>
+                        <td data-label="Adicional 2">${product[9]}</td>
+                        <td data-label="Categoria">${product[10]}</td>
+                        <td data-label="Ações">
+                            <button onclick="editProduct(${product[0]})">Editar</button>
                             <button onclick="deleteProduct(${product[0]})">Deletar</button>
                         </td>
                     </tr>
