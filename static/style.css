@@ -15,6 +15,27 @@ body {
     /* 100px */
     box-sizing: border-box;
 }
+.audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.audio-player button {
+    background-color: #be4f2a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px #a10101;
+}
+
+.audio-player button:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 17px #a10101;
+}
 
 .logo h1 {
     font-size: clamp(1.5rem, 5vw, 3.125rem);

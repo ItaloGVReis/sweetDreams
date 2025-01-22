@@ -165,3 +165,17 @@ document.querySelector(".close-btn").onclick = closeModal;
 function serio(){
     alert('Aí você já quer é um pai né não?')
 }
+
+//butão do áudio
+const audio = document.getElementById('meuAudio');
+const playPauseButton = document.getElementById('playPause');
+
+playPauseButton.addEventListener('click', () => {
+    if (audio.paused) {
+        audio.play();
+        playPauseButton.textContent = 'Pause';
+    } else {
+        audio.pause();
+        playPauseButton.textContent = 'Play';
+    }
+});

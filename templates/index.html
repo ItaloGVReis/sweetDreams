@@ -24,10 +24,11 @@
             </a>
         </div>
         <div class="parece">
-            <audio controls>
-                <source src="/static/imagens/Eurythmics - Sweet Dreams (Are Made of This) (Remastered).mp3" type="audio/mpeg">
-                Seu navegador não suporta esse tipo de audio.
-            </audio>
+            <audio id="meuAudio" src="/static/imagens/Eurythmics - Sweet Dreams (Are Made of This) (Remastered).mp3"></audio>
+        <div class="audio-player">
+                <button id="playPause" class="bangers-regular">Play</button>
+        </div>
+
         </div>
    
         <div class="simbolos">
@@ -48,7 +49,7 @@
                         <img src="/static/imagens/fitaanimada.gif" alt="fita animada" onclick="alternarConteudo()">
                     </div>
                     <div class="textinho bangers-regular"> 
-                        Nosso compromisso é fornecer os melhores serviços para nossos clientes.
+                        Oferecer uma experiência nostálgica e acolhedora, através de lanches clássicos e inovadores, inspirados na amada 'época de ouro' dos anos 80, com um toque contemporâneo.
                     </div>
                 </div>
             </div>
@@ -75,10 +76,10 @@
             </div>
             <div class="jeito">
                 <div class="aparece">
-                    <audio controls>
-                      <source src="/static/imagens/Eurythmics - Sweet Dreams (Are Made of This) (Remastered).mp3" type="audio/mpeg">
-                      Seu navegador não suporta esse tipo de audio.
-                    </audio>
+                    <audio id="meuAudio" src="/static/imagens/Eurythmics - Sweet Dreams (Are Made of This) (Remastered).mp3"></audio>
+                    <div class="audio-player">
+                            <button id="playPause" class="bangers-regular">Play</button>
+                    </div>
                 </div>
                 <div class="fotinha">
 
@@ -163,9 +164,10 @@
 
     // Conteúdos alternáveis
     const conteudo = [
-        { titulo: "Missão", texto: "Nosso compromisso é fornecer os melhores serviços para nossos clientes." },
-        { titulo: "Visão", texto: "Ser líder de mercado e referência em qualidade e inovação." },
-        { titulo: "Valores", texto: "Ética, transparência e compromisso com a sustentabilidade." }
+        { titulo: "Missão", texto: "Oferecer uma experiência nostálgica e acolhedora, através de lanches clássicos e inovadores, inspirados na amada 'época de ouro' dos anos 80, com um toque contemporâneo." },
+        { titulo: "Visão", texto: "Ser reconhecida como a lanchonete referência em Bacabeira, onde pessoas de todas as idade se encontram para reviver e criar boas lembranças." },
+        { titulo: "Valores", texto: "Nostalgia e inovação, atendimento acolhedor, inclusão geracional, diversão e sustentabilidade." },
+        { titulo: "Utilitário", texto: "Aperte o botão play para ouvir uma música icónica dos anos 80" }
     ];
 
     let indiceAtual = 0;
