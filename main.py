@@ -202,18 +202,54 @@ def get_products1():
 # Atualizar um produto existente
 @app.route('/api/products1/<int:id>', methods=['PUT'])
 def update_product(id):
-    data = request.json
+    data = request.form  # Usando request.form para capturar os dados do formulário
+    files = request.files  # Usando request.files para capturar os arquivos de imagem
+
+    # Inicializa uma lista para armazenar as URLs das imagens
+    image_urls = ['', '', '', '']  # Imagens são inicialmente vazias
+
+    # Verifica se os arquivos de imagem foram enviados e atualiza as URLs
+    for i in range(1, 5):  # Para image_url até image_url4
+        file = files.get(f'image_url{i}')
+        if file and allowed_file(file.filename):  # Se o arquivo for válido
+            filename = secure_filename(file.filename)
+            filepath = os.path.join(UPLOAD_FOLDER, filename)
+            file.save(filepath)
+
+            # Atribui a URL correta para a imagem
+            if i == 1:  # A primeira imagem vai para image_url
+                image_urls[0] = f'/static/imagens/{filename}'
+            elif i == 2:  # A segunda imagem vai para image_url2
+                image_urls[1] = f'/static/imagens/{filename}'
+            elif i == 3:  # A terceira imagem vai para image_url3
+                image_urls[2] = f'/static/imagens/{filename}'
+            elif i == 4:  # A quarta imagem vai para image_url4
+                image_urls[3] = f'/static/imagens/{filename}'
+
+    # Caso não tenha imagem enviada, você pode manter as URLs atuais (se necessário).
+    # Por exemplo, se não enviar nenhuma imagem, as URLs podem permanecer vazias ou não alterar.
     cursor = mysql.connection.cursor()
     query = """
         UPDATE products1 
-        SET nome = %s, descricao = %s, preco = %s, image_url = %s, image_url2 = %s, image_url3 = %s, image_url4 = %s, adicional = %s, adicional2 = %s, categoria = %s 
+        SET nome = %s, descricao = %s, preco = %s, image_url = %s, image_url2 = %s, image_url3 = %s, image_url4 = %s, adicional = %s, adicional2 = %s, categoria = %s
         WHERE id = %s
     """
-    cursor.execute(query, (data['nome'], data['descricao'], data['preco'], data['image_url'], data['image_url2'], data['image_url3'], data['image_url4'], data['adicional'], data['adicional2'], data['categoria'], id))
+    cursor.execute(query, (
+        data['nome'],
+        data['descricao'],
+        data['preco'],
+        image_urls[0],  # image_url (primeira imagem)
+        image_urls[1],  # image_url2
+        image_urls[2],  # image_url3
+        image_urls[3],  # image_url4
+        data['adicional'],
+        data['adicional2'],
+        data['categoria'],
+        id  # ID do produto para atualização
+    ))
     mysql.connection.commit()
     cursor.close()
     return jsonify({'message': 'Produto atualizado com sucesso!'})
-
 
 # Deletar um produto
 @app.route('/api/products1/<int:id>', methods=['DELETE'])
