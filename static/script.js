@@ -66,10 +66,10 @@ function loadproducts1() {
                         <td>${product[1]}</td>
                         <td>${product[2]}</td>
                         <td>R$ ${product[3]}</td>
-                        <td><img src="${product[4]}" alt="Imagem" width="50"></td>
-                        <td><img src="${product[5]}" alt="Imagem2" width="50"></td>
-                        <td><img src="${product[6]}" alt="Imagem3" width="50"></td>
-                        <td><img src="${product[7]}" alt="Imagem4" width="50"></td>
+                        <td><img src="${product[4]}" alt="${product[4]}" width="50"></td>
+                        <td><img src="${product[5]}" alt="${product[5]}" width="50"></td>
+                        <td><img src="${product[6]}" alt="${product[6]}" width="50"></td>
+                        <td><img src="${product[7]}" alt="${product[7]}" width="50"></td>
                         <td>${product[8]}</td>
                         <td>${product[9]}</td>
                         <td>${product[10]}</td>

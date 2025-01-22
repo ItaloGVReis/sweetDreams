@@ -146,17 +146,22 @@ def create_product():
     data = request.form
     files = request.files
 
+    # Inicializa uma lista para armazenar as URLs das imagens
+    image_urls = ['', '', '', '']  # Imagens são inicialmente vazias
+
     # Verifica se os arquivos de imagem foram enviados
-    image_urls = []
     for i in range(1, 5):  # Para image_url até image_url4
         file = files.get(f'image_url{i}')
-        if file and allowed_file(file.filename):
+        if file and allowed_file(file.filename):  # Se o arquivo for válido
             filename = secure_filename(file.filename)
             filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
             file.save(filepath)
-            image_urls.append(f'/static/imagens/{filename}')
-        else:
-            image_urls.append('')  # Caso não tenha imagem
+            
+            # Atribui a URL correta para a imagem
+            if i == 1:
+                image_urls[0] = f'/static/imagens/{filename}'  # Primeira imagem vai para image_url
+            else:
+                image_urls[i - 1] = f'/static/imagens/{filename}'  # Outras imagens vão para image_url2, image_url3, image_url4
 
     cursor = mysql.connection.cursor()
     query = """
@@ -167,7 +172,7 @@ def create_product():
         data['nome'],
         data['descricao'],
         data['preco'],
-        image_urls[0],  # image_url
+        image_urls[0],  # image_url (primeira imagem)
         image_urls[1],  # image_url2
         image_urls[2],  # image_url3
         image_urls[3],  # image_url4
@@ -178,6 +183,7 @@ def create_product():
     mysql.connection.commit()
     cursor.close()
     return jsonify({'message': 'Produto criado com sucesso!'})
+
 
 # Ler todos os produtos
 @app.route('/api/products1', methods=['GET'])
