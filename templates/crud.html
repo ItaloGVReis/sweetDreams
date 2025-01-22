@@ -31,79 +31,58 @@
     </header>
 
     <main class="meio" style="height:auto; font-family: Verdana, sans-serif;">
-        <h1 class="bangers-regular" style="color: white;">Gerenciar Produtos</h1>
+        <h1 class="bangers-regular destaque">Gerenciar Produtos</h1>
     
         <form id="product-form" enctype="multipart/form-data">
             <input type="hidden" id="product-id">
+            <label for="nome" class="bangers-regular destaque">Nome:</label>
+            <input type="text" id="nome" required class="bangers-regular">
+        
+            <label for="descricao" class="bangers-regular destaque">Descrição:</label>
+            <input type="text" id="descricao" required class="bangers-regular">
+        
+            <label for="preco" class="bangers-regular destaque">Preço:</label>
+            <input type="number" step="0.01" id="preco" required class="bangers-regular">
+        
+            <label for="image_url" class="bangers-regular destaque">Imagem 1:</label>
+            <input type="file" name="image_url" id="image_url" class="bangers-regular">
     
-            <div class="form-group">
-                <label for="nome"  class="bangers-regular" style="color: white;">Nome:</label>
-                <input type="text" id="nome" required>
-            </div>
+            <label for="image_url2" class="bangers-regular destaque">Imagem 2:</label>
+            <input type="file" name="image_url2" id="image_url2" class="bangers-regular">
     
-            <div class="form-group">
-                <label for="descricao"  class="bangers-regular" style="color: white;">Descrição:</label>
-                <input type="text" id="descricao" required>
-            </div>
+            <label for="image_url3" class="bangers-regular destaque">Imagem 3:</label>
+            <input type="file" name="image_url3" id="image_url3" class="bangers-regular">
     
-            <div class="form-group">
-                <label for="preco">Preço:</label>
-                <input type="number" step="0.01" id="preco" required>
-            </div>
-    
-            <div class="form-group">
-                <label for="image_url">Imagem 1:</label>
-                <input type="file" name="image_url" id="image_url">
-            </div>
-    
-            <div class="form-group">
-                <label for="image_url2">Imagem 2:</label>
-                <input type="file" name="image_url2" id="image_url2">
-            </div>
-    
-            <div class="form-group">
-                <label for="image_url3">Imagem 3:</label>
-                <input type="file" name="image_url3" id="image_url3">
-            </div>
-    
-            <div class="form-group">
-                <label for="image_url4">Imagem 4:</label>
-                <input type="file" name="image_url4" id="image_url4">
-            </div>
-    
-            <div class="form-group">
-                <label for="adicional">Adicional 1:</label>
-                <input type="text" id="adicional" required>
-            </div>
-    
-            <div class="form-group">
-                <label for="adicional2">Adicional 2:</label>
-                <input type="text" id="adicional2" required>
-            </div>
-    
-            <div class="form-group">
-                <label for="categoria">Categoria:</label>
-                <input type="text" id="categoria" required>
-            </div>
-    
-            <button type="submit" class="buton">Salvar</button>
+            <label for="image_url4" class="bangers-regular destaque">Imagem 4:</label>
+            <input type="file" name="image_url4" id="image_url4" class="bangers-regular">
+        
+            <label for="adicional" class="bangers-regular destaque">Adicional 1:</label>
+            <input type="text" id="adicional" required class="bangers-regular">
+        
+            <label for="adicional2" class="bangers-regular destaque">Adicional 2:</label>
+            <input type="text" id="adicional2" required class="bangers-regular">
+        
+            <label for="categoria" class="bangers-regular destaque">Categoria:</label>
+            <input type="text" id="categoria" required class="bangers-regular">
+        
+            <button type="submit" class="bangers-regular">Salvar</button>
         </form>
     
         <table>
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>Descrição</th>
-                    <th>Preço</th>
-                    <th>Imagem</th>
-                    <th>Imagem 2</th>
-                    <th>Imagem 3</th>
-                    <th>Imagem 4</th>
-                    <th>Adicional</th>
-                    <th>Adicional 2</th>
-                    <th>Categoria</th>
-                    <th>Ações</th>
+                    <th class="bangers-regular">ID</th>
+                    <th class="bangers-regular">Nome</th>
+                    <th class="bangers-regular">Descrição</th>
+                    <th class="bangers-regular">Preço</th>
+                    <th class="bangers-regular">Imagem</th>
+                    <th class="bangers-regular">Imagem 2</th>
+                    <th class="bangers-regular">Imagem 3</th>
+                    <th class="bangers-regular">Imagem 4</th>
+                    <th class="bangers-regular">Adicional</th>
+                    <th class="bangers-regular">Adicional 2</th>
+                    <th class="bangers-regular">Categoria</th>
+                    <th class="bangers-regular">Ações</th>
                 </tr>
             </thead>
             <tbody id="product-list"></tbody>
