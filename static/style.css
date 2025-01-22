@@ -697,7 +697,60 @@ form {
     font-size: 20px;
     cursor: pointer;
 }
+/* ------------------------crud-------------------------- */
+.form-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+}
 
+.form-group input, .form-group button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    flex: 1;
+    min-width: 200px;
+}
+
+.form-group button {
+    background-color: #be4f2a;
+    color: white;
+    cursor: pointer;
+}
+
+.form-group button:hover {
+    background-color: #a94420;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #be4f2a;
+    color: white;
+}
+
+table, th, td {
+    border: 1px solid #fff;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #a94420;
+    text-transform: uppercase;
+}
+
+td img {
+    border-radius: 5px;
+    max-width: 50px;
+}
 @media (max-width: 606px) {
     .hbutao {
         display: none;

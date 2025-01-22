@@ -58,10 +58,11 @@ function loadproducts1() {
     fetch('/api/products1')
         .then(response => response.json())
         .then(data => {
+            const productList = document.getElementById('productList');
             productList.innerHTML = '';
             data.forEach(product => {
                 productList.innerHTML += `
-                    <tr>
+                    <tr class="bangers-regular">
                         <td>${product[0]}</td>
                         <td>${product[1]}</td>
                         <td>${product[2]}</td>
@@ -73,9 +74,8 @@ function loadproducts1() {
                         <td>${product[8]}</td>
                         <td>${product[9]}</td>
                         <td>${product[10]}</td>
-                     
                         <td>
-                            <button onclick="editProduct(${product[0]}, '${product[1]}', '${product[2]}', ${product[3]}, '${product[4]}', '${product[5]}', '${product[6]}', '${product[7]}', '${product[8]}', '${product[9]}', '${product[10]}' )">Editar</button>
+                            <button onclick="editProduct(${product[0]}, '${product[1]}', '${product[2]}', ${product[3]}, '${product[4]}', '${product[5]}', '${product[6]}', '${product[7]}', '${product[8]}', '${product[9]}', '${product[10]}')">Editar</button>
                             <button onclick="deleteProduct(${product[0]})">Deletar</button>
                         </td>
                     </tr>
@@ -83,6 +83,7 @@ function loadproducts1() {
             });
         });
 }
+
 
 // Adicionar/Atualizar produto
 form.addEventListener('submit', (e) => {

@@ -26,7 +26,7 @@
         <div class="parece">
                 <audio id="meuAudio" src="/static/imagens/Eurythmics - Sweet Dreams (Are Made of This) (Remastered).mp3"></audio>
             <div class="audio-player">
-                    <button id="playPause" class="bangers-regular">Play</button>
+                    <button class="playPause bangers-regular">Play</button>
             </div>
 
         </div>
@@ -76,9 +76,8 @@
             </div>
             <div class="jeito">
                 <div class="aparece">
-                    <audio id="meuAudio" src="/static/imagens/Eurythmics - Sweet Dreams (Are Made of This) (Remastered).mp3"></audio>
                     <div class="audio-player">
-                            <button id="playPause" class="bangers-regular">Play</button>
+                            <button class="playPause bangers-regular">Play</button>
                     </div>
                 </div>
                 <div class="fotinha">
@@ -180,17 +179,28 @@
     });
 });
 const audio = document.getElementById('meuAudio');
-const playPauseButton = document.getElementById('playPause');
+const playPauseButtons = document.querySelectorAll('.playPause');
 
-playPauseButton.addEventListener('click', () => {
-    if (audio.paused) {
-        audio.play();
-        playPauseButton.textContent = 'Pause';
-    } else {
-        audio.pause();
-        playPauseButton.textContent = 'Play';
-    }
+// Atualiza todos os botões com o estado correto
+function updateButtonStates(isPlaying) {
+    playPauseButtons.forEach(button => {
+        button.textContent = isPlaying ? 'Pause' : 'Play';
+    });
+}
+
+// Adiciona evento de clique para cada botão
+playPauseButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        if (audio.paused) {
+            audio.play();
+            updateButtonStates(true);
+        } else {
+            audio.pause();
+            updateButtonStates(false);
+        }
+    });
 });
+
     </script>
 </body>
 <script src="/static/script.js"></script>
