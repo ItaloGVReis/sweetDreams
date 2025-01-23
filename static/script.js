@@ -54,90 +54,133 @@ const form = document.getElementById('product-form');
 
 
 // Carregar produtos
-function loadproducts1() {
-    fetch('/api/products1')
+// Função para carregar os produtos
+function loadProducts() {
+    fetch('/api/products1')  // Chama a API para pegar os produtos
         .then(response => response.json())
         .then(data => {
             const productList = document.getElementById('product-list');
-            productList.innerHTML = '';
+            productList.innerHTML = ''; // Limpa a tabela antes de adicionar novos produtos
             data.forEach(product => {
+                // Adiciona os produtos na tabela
                 productList.innerHTML += `
                     <tr>
                         <td data-label="ID">${product[0]}</td>
                         <td data-label="Nome">${product[1]}</td>
                         <td data-label="Descrição">${product[2]}</td>
                         <td data-label="Preço">R$ ${product[3]}</td>
-                        <td data-label="Imagem"><img src="${product[4]}" alt="Imagem 1"></td>
-                        <td data-label="Imagem 2"><img src="${product[5]}" alt="Imagem 2"></td>
-                        <td data-label="Imagem 3"><img src="${product[6]}" alt="Imagem 3"></td>
-                        <td data-label="Imagem 4"><img src="${product[7]}" alt="Imagem 4"></td>
+                        <td data-label="Imagem"><img src="${product[4]}" alt="Imagem 1" width="50"></td>
+                        <td data-label="Imagem 2"><img src="${product[5]}" alt="Imagem 2" width="50"></td>
+                        <td data-label="Imagem 3"><img src="${product[6]}" alt="Imagem 3" width="50"></td>
+                        <td data-label="Imagem 4"><img src="${product[7]}" alt="Imagem 4" width="50"></td>
                         <td data-label="Adicional">${product[8]}</td>
                         <td data-label="Adicional 2">${product[9]}</td>
                         <td data-label="Categoria">${product[10]}</td>
                         <td data-label="Ações">
-                            <button onclick="editProduct(${product[0]})"  class="buton">Editar</button>
-                            <button onclick="deleteProduct(${product[0]})"  class="buton">Deletar</button>
+                            <button onclick="editProduct(${product[0]})" class="buton">Editar</button>
+                            <button onclick="deleteProduct(${product[0]})" class="buton">Deletar</button>
                         </td>
                     </tr>
                 `;
             });
-        });
+        })
+        .catch(error => console.error('Erro ao carregar os produtos:', error));
 }
 
+// Função para criar um novo produto
+document.getElementById('product-form').addEventListener('submit', function(event) {
+    event.preventDefault();
 
+    const formData = new FormData();
+    formData.append('nome', document.getElementById('nome').value);
+    formData.append('descricao', document.getElementById('descricao').value);
+    formData.append('preco', document.getElementById('preco').value);
+    formData.append('adicional', document.getElementById('adicional').value);
+    formData.append('adicional2', document.getElementById('adicional2').value);
+    formData.append('categoria', document.getElementById('categoria').value);
+    formData.append('image_url', document.getElementById('image_url').files[0]);
+    formData.append('image_url2', document.getElementById('image_url2').files[0]);
+    formData.append('image_url3', document.getElementById('image_url3').files[0]);
+    formData.append('image_url4', document.getElementById('image_url4').files[0]);
 
-
-// Adicionar/Atualizar produto
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const id = document.getElementById('product-id').value.trim();
-    const method = id ? 'PUT' : 'POST';
-    const url = id ? `/api/products1/${id}` : '/api/products1';
-
-    const productData = new FormData();
-    productData.append('nome', document.getElementById('nome').value);
-    productData.append('descricao', document.getElementById('descricao').value);
-    productData.append('preco', parseFloat(document.getElementById('preco').value));
-    productData.append('adicional', document.getElementById('adicional').value);
-    productData.append('adicional2', document.getElementById('adicional2').value);
-    productData.append('categoria', document.getElementById('categoria').value);
-
-    // Adicionando as imagens
-    productData.append('image_url', document.getElementById('image_url').files[0]);
-    productData.append('image_url2', document.getElementById('image_url2').files[0]);
-    productData.append('image_url3', document.getElementById('image_url3').files[0]);
-    productData.append('image_url4', document.getElementById('image_url4').files[0]);
-
-    fetch(url, {
-        method,
-        body: productData,
+    fetch('/api/products1', {
+        method: 'POST',
+        body: formData
     })
-        .then(response => response.json())
-        .then(data => {
-            alert(data.message || 'Produto atualizado com sucesso!');
-            form.reset();
-            loadproducts1(); // Atualiza a lista de produtos
-        })
-        .catch(error => console.error('Erro:', error));
+    .then(response => response.json())
+    .then(data => {
+        alert(data.message);
+        loadProducts();  // Recarrega os produtos após a criação
+    })
+    .catch(error => console.error('Erro ao criar o produto:', error));
+});
+// Função para atualizar um produto
+document.getElementById('product-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const productId = document.getElementById('product-id').value;
+    const formData = new FormData();
+    formData.append('nome', document.getElementById('nome').value);
+    formData.append('descricao', document.getElementById('descricao').value);
+    formData.append('preco', document.getElementById('preco').value);
+    formData.append('adicional', document.getElementById('adicional').value);
+    formData.append('adicional2', document.getElementById('adicional2').value);
+    formData.append('categoria', document.getElementById('categoria').value);
+    formData.append('image_url', document.getElementById('image_url').files[0]);
+    formData.append('image_url2', document.getElementById('image_url2').files[0]);
+    formData.append('image_url3', document.getElementById('image_url3').files[0]);
+    formData.append('image_url4', document.getElementById('image_url4').files[0]);
+
+    fetch(`/api/products1/${productId}`, {
+        method: 'PUT',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(data.message);
+        loadProducts();  // Recarrega os produtos após a atualização
+    })
+    .catch(error => console.error('Erro ao atualizar o produto:', error));
 });
 
+// Função para editar um produto
+// Função para editar um produto
+function editProduct(id) {
+    fetch(`/api/products1/${id}`)
+        .then(response => response.json())
+        .then(product => {
+            document.getElementById('product-id').value = product[0];
+            document.getElementById('nome').value = product[1];
+            document.getElementById('descricao').value = product[2];
+            document.getElementById('preco').value = product[3];
+            document.getElementById('adicional').value = product[8];
+            document.getElementById('adicional2').value = product[9];
+            document.getElementById('categoria').value = product[10];
 
-// Preencher formulário para edição
-function editProduct(id, nome, descricao, preco, image_url, image_url2, image_url3, image_url4, adicional, adicional2, categoria) {
-    document.getElementById('product-id').value = id;
-    document.getElementById('nome').value = nome;
-    document.getElementById('descricao').value = descricao;
-    document.getElementById('preco').value = preco;
-    document.getElementById('adicional').value = adicional;
-    document.getElementById('adicional2').value = adicional2;
-    document.getElementById('categoria').value = categoria;
+            // Exibe as imagens atuais no formulário
+            const imageContainer = document.getElementById('image-container');
+            imageContainer.innerHTML = ''; // Limpa as imagens anteriores exibidas
 
-    // Exibir imagens atuais ao lado dos campos de upload
-    document.getElementById('image_url_preview').src = image_url;
-    document.getElementById('image_url2_preview').src = image_url2;
-    document.getElementById('image_url3_preview').src = image_url3;
-    document.getElementById('image_url4_preview').src = image_url4;
+            if (product[4]) {  // Verifica se a imagem 1 existe
+                imageContainer.innerHTML += `<img src="${product[4]}" alt="Imagem 1" width="100" class="product-image">`;
+            }
+
+            if (product[5]) {  // Verifica se a imagem 2 existe
+                imageContainer.innerHTML += `<img src="${product[5]}" alt="Imagem 2" width="100" class="product-image">`;
+            }
+
+            if (product[6]) {  // Verifica se a imagem 3 existe
+                imageContainer.innerHTML += `<img src="${product[6]}" alt="Imagem 3" width="100" class="product-image">`;
+            }
+
+            if (product[7]) {  // Verifica se a imagem 4 existe
+                imageContainer.innerHTML += `<img src="${product[7]}" alt="Imagem 4" width="100" class="product-image">`;
+            }
+        })
+        .catch(error => console.error('Erro ao carregar produto para edição:', error));
 }
+
+// Chama a função para carregar os produtos quando a página for carregada
+window.onload = loadProducts;
 
 
 // Deletar produto

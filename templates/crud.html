@@ -32,7 +32,7 @@
 
     <main class="meio" style="height:auto; font-family: Verdana, sans-serif;">
         <h1>Gerenciar Produtos</h1>
-
+    
         <form id="product-form" enctype="multipart/form-data">
             <input type="hidden" id="product-id">
             <label for="nome">Nome:</label>
@@ -46,19 +46,15 @@
         
             <label for="image_url">Imagem 1:</label>
             <input type="file" name="image_url" id="image_url">
-  
-
+        
             <label for="image_url2">Imagem 2:</label>
             <input type="file" name="image_url2" id="image_url2">
-
-
+        
             <label for="image_url3">Imagem 3:</label>
             <input type="file" name="image_url3" id="image_url3">
-
-
+        
             <label for="image_url4">Imagem 4:</label>
             <input type="file" name="image_url4" id="image_url4">
-
         
             <label for="adicional">Adicional 1:</label>
             <input type="text" id="adicional" required>
@@ -71,7 +67,10 @@
         
             <button type="submit">Salvar</button>
         </form>
-
+    
+        <!-- Exibição das imagens atuais do produto -->
+        <div id="image-container" style="margin-top: 20px;"></div>
+    
         <table>
             <thead>
                 <tr>
@@ -92,6 +91,7 @@
             <tbody id="product-list"></tbody>
         </table>
     </main>
+    
     
     <footer class="footer">
         <div class="footer-line"></div>
