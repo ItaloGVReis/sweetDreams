@@ -85,6 +85,8 @@ function loadproducts1() {
 }
 
 
+
+
 // Adicionar/Atualizar produto
 form.addEventListener('submit', (e) => {
     e.preventDefault();
