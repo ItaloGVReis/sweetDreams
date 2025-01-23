@@ -86,26 +86,7 @@
                 </tr>
             </thead>
             <tbody>
-                {% for product in products %}
-                    <tr>
-                        <td>{{ product[0] }}</td>
-                        <td>{{ product[1] }}</td>
-                        <td>{{ product[2] }}</td>
-                        <td>R$ {{ product[3] }}</td>
-                        <td><img src="{{ product[4] }}" alt="Imagem 1"></td>
-                        <td><img src="{{ product[5] }}" alt="Imagem 2"></td>
-                        <td><img src="{{ product[6] }}" alt="Imagem 3"></td>
-                        <td><img src="{{ product[7] }}" alt="Imagem 4"></td>
-                        <td>{{ product[8] }}</td>
-                        <td>{{ product[9] }}</td>
-                        <td>{{ product[10] }}</td>
-                        <td>
-                            <button class="buton edit-button" data-id="{{ product[0] }}">Editar</button>
-                            <button class="buton delete-button" data-id="{{ product[0] }}">Deletar</button>
-
-                        </td>
-                    </tr>
-                {% endfor %}
+                
             </tbody>
         </table>
     </main>

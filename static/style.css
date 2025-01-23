@@ -698,75 +698,7 @@ form {
     cursor: pointer;
 }
 /* ------------------------crud-------------------------- */
-form {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    margin-bottom: 30px;
-}
 
-.form-group {
-    display: flex;
-    flex-direction: column;
-}
-
-label {
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #333;
-}
-
-input[type="text"], input[type="number"], input[type="file"] {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-}
-
-.buton {
-    grid-column: span 2;
-    padding: 10px 20px;
-    background-color: #be4f2a;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.buton:hover {
-    background-color: #a94420;
-}
-
-/* Table Styles */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    background-color: #be4f2a;
-    color: white;
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-thead {
-    background-color: #a94420;
-}
-
-th, td {
-    padding: 10px;
-    text-align: left;
-    border: 1px solid #fff;
-}
-
-td img {
-    max-width: 50px;
-    border-radius: 5px;
-}
-
-tbody tr:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
 .destaque {
     color: white;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
@@ -779,36 +711,7 @@ tbody tr:hover {
     text-align: center;
     margin: 9px 0;
 }
-/* Responsive Table (Vertical View on Mobile) */
-@media (max-width: 768px) {
-    table, thead, tbody, th, td, tr {
-        display: block;
-        width: 100%;
-    }
 
-    thead tr {
-        display: none;
-    }
-
-    tbody tr {
-        margin-bottom: 15px;
-        border-bottom: 2px solid white;
-    }
-
-    tbody td {
-        display: flex;
-        justify-content: space-between;
-        padding: 10px 5px;
-        font-size: 14px;
-    }
-
-    tbody td:before {
-        content: attr(data-label);
-        font-weight: bold;
-        color: #fff;
-        text-transform: uppercase;
-    }
-}
 @media (max-width: 606px) {
     .hbutao {
         display: none;
