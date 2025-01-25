@@ -585,8 +585,8 @@ header input {
     display: block;
     margin: 20px 0 0 auto;
     padding: 10px 20px;
-    background-color: #0275d8;
-    color: white;
+    background-color: #620100;
+    color: #ecd4a4;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -717,14 +717,14 @@ form input, form button {
 }
 
 form button {
-    background-color: #007BFF;
+    background-color: #a10101;
     color: #fff;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 form button:hover {
-    background-color: #0056b3;
+    background-color: #620100;
 }
 
 /* Tabela estilizada */
@@ -739,14 +739,22 @@ table th, table td {
     text-align: left;
     border: 1px solid #ddd;
     font-family: 'Bangers', cursive;
+    color: #ffffff; /* Textos brancos padrão */
 }
 
 table th {
-    background-color: #be4f2a;
+    background-color: #333; /* Cabeçalhos escuros */
+    color: #ecd4a4; /* Texto claro para contraste */
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #f4a261; /* Tom de laranja */
+    color: #ffffff; /* Texto branco */
 }
 
 tbody tr:nth-child(even) {
-    background-color: #be4f2a;
+    background-color: #620100; /* Vermelho escuro */
+    color: #ecd4a4; /* Texto claro */
 }
 
 /* Responsividade para a tabela */
@@ -768,7 +776,6 @@ tr {
 td, th {
     display: table-cell;
 }
-
 .destaque {
     color: white;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);

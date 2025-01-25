@@ -16,7 +16,7 @@
     <header class="head">
         <div class="logo">
             <a href="/">
-                <h1 class="bangers-regular" style="text-shadow: 0 5px 7px #be4f2a;">SWEET DREAMS</h1>
+                <h1 class="bangers-regular" style="text-shadow: 0 5px 7px #f8c560;">SWEET DREAMS</h1>
             </a>
         </div>
         <div class="parece">
@@ -31,38 +31,38 @@
     </header>
 
     <main class="meio" style="height:auto; font-family: Verdana, sans-serif;">
-        <h1>Gerenciar Produtos</h1>
+        <h1 class="destaque">Gerenciar Produtos</h1>
     
         <form id="product-form" method="POST" enctype="multipart/form-data">
             <input type="hidden" id="product-id">
-            <label for="nome">Nome:</label>
+            <label for="nome" class="destaque">Nome:</label>
             <input type="text" id="nome" name="nome" required>
     
-            <label for="descricao">Descrição:</label>
+            <label for="descricao" class="destaque" >Descrição:</label>
             <input type="text" id="descricao" name="descricao" required>
     
-            <label for="preco">Preço:</label>
+            <label for="preco" class="destaque">Preço:</label>
             <input type="number" step="0.01" id="preco" name="preco" required>
     
-            <label for="image_url">Imagem 1:</label>
+            <label for="image_url" class="destaque">Imagem 1:</label>
             <input type="file" name="image_url" id="image_url">
     
-            <label for="image_url2">Imagem 2:</label>
+            <label for="image_url2" class="destaque">Imagem 2:</label>
             <input type="file" name="image_url2" id="image_url2">
     
-            <label for="image_url3">Imagem 3:</label>
+            <label for="image_url3" class="destaque">Imagem 3:</label>
             <input type="file" name="image_url3" id="image_url3">
     
-            <label for="image_url4">Imagem 4:</label>
+            <label for="image_url4" class="destaque">Imagem 4:</label>
             <input type="file" name="image_url4" id="image_url4">
     
-            <label for="adicional">Adicional 1:</label>
+            <label for="adicional" class="destaque">Adicional 1:</label>
             <input type="text" id="adicional" name="adicional" required>
     
-            <label for="adicional2">Adicional 2:</label>
+            <label for="adicional2" class="destaque">Adicional 2:</label>
             <input type="text" id="adicional2" name="adicional2" required>
     
-            <label for="categoria">Categoria:</label>
+            <label for="categoria" class="destaque">Categoria:</label>
             <input type="text" id="categoria" name="categoria" required>
     
             <button type="submit">Salvar</button>
