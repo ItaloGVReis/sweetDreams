@@ -717,44 +717,37 @@ form input, form button {
 }
 
 form button {
-    background-color: #a10101;
+    background-color: #007BFF;
     color: #fff;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 form button:hover {
-    background-color: #620100;
+    background-color: #0056b3;
 }
 
 /* Tabela estilizada */
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+    table-layout: fixed; /* Garante largura fixa */
+    width: 100%; /* Usa todo o espaço disponível */
+    border-collapse: collapse; /* Remove espaçamento entre bordas */
 }
+
 
 table th, table td {
     padding: 10px;
     text-align: left;
     border: 1px solid #ddd;
     font-family: 'Bangers', cursive;
-    color: #ffffff; /* Textos brancos padrão */
 }
 
 table th {
-    background-color: #333; /* Cabeçalhos escuros */
-    color: #ecd4a4; /* Texto claro para contraste */
-}
-
-tbody tr:nth-child(odd) {
-    background-color: #f4a261; /* Tom de laranja */
-    color: #ffffff; /* Texto branco */
+    background-color: #f4f4f4;
 }
 
 tbody tr:nth-child(even) {
-    background-color: #620100; /* Vermelho escuro */
-    color: #ecd4a4; /* Texto claro */
+    background-color: #f9f9f9;
 }
 
 /* Responsividade para a tabela */
@@ -766,7 +759,7 @@ table {
 
 thead, tbody {
     display: table; /* Mantém o comportamento de tabela */
-    width: 100%;
+
 }
 
 tr {
