@@ -339,7 +339,9 @@ body {
     display: flex;
     margin: 3% 0.625rem;
     /* 10px */
-    height: 12.5rem;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    height: auto;
     /* 200px */
     width: 31.25rem;
     /* 500px */
