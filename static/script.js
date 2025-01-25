@@ -75,8 +75,8 @@ function loadproducts1() {
                         <td>${product[10]}</td>
                      
                         <td>
-                            <button onclick="editProduct(${product[0]}, '${product[1]}', '${product[2]}', ${product[3]}, '${product[4]}', '${product[5]}', '${product[6]}', '${product[7]}', '${product[8]}', '${product[9]}', '${product[10]}' )">Editar</button>
-                            <button onclick="deleteProduct(${product[0]})">Deletar</button>
+                            <button onclick="editProduct(${product[0]}, '${product[1]}', '${product[2]}', ${product[3]}, '${product[4]}', '${product[5]}', '${product[6]}', '${product[7]}', '${product[8]}', '${product[9]}', '${product[10]}' )" class="pluh">Editar</button>
+                            <button onclick="deleteProduct(${product[0]})" class="pluh">Deletar</button>
                         </td>
                     </tr>
                 `;

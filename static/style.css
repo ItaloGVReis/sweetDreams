@@ -718,7 +718,7 @@ form input, form button {
 
 form button {
     background-color: #a10101;
-    color: #ecd4a4;
+    color: white;
     cursor: pointer;
     transition: background-color 0.3s ease;
     width: fit-content;
@@ -750,13 +750,17 @@ table th {
 tbody tr:nth-child(even) {
     background-color: #a10101;
 }
+tbody tr:nth-child(odd) {
+    background-color: #be4f2a; /* Cor para as linhas ímpares */
+    color: #fff;
+}
 
 /* Responsividade para a tabela */
 table {
     display: block;
     overflow-x: auto; /* Adiciona rolagem horizontal */
     white-space: nowrap;
-    color: white;
+    color: #ecd4a4;
 }
 
 tbody thead{
@@ -862,7 +866,7 @@ td, th {
         display: none;
     }
     .textinho{
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
 
     .tipo {
