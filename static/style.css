@@ -698,6 +698,76 @@ form {
     cursor: pointer;
 }
 /* ------------------------crud-------------------------- */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espaçamento entre os campos */
+    margin-bottom: 20px;
+}
+
+form label {
+    font-family: 'Bangers', cursive;
+}
+
+form input, form button {
+    font-family: 'Verdana', sans-serif;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+form button {
+    background-color: #007BFF;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+/* Tabela estilizada */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+    font-family: 'Bangers', cursive;
+}
+
+table th {
+    background-color: #be4f2a;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #be4f2a;
+}
+
+/* Responsividade para a tabela */
+table {
+    display: block;
+    overflow-x: auto; /* Adiciona rolagem horizontal */
+    white-space: nowrap;
+}
+
+thead, tbody {
+    display: table; /* Mantém o comportamento de tabela */
+    width: 100%;
+}
+
+tr {
+    display: table-row;
+}
+
+td, th {
+    display: table-cell;
+}
 
 .destaque {
     color: white;
@@ -769,7 +839,9 @@ form {
     }
 
     .comidasum {
-        height: 250px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        height: auto;
         width: 300px;
         display: flex;
         flex-direction: column;
@@ -787,6 +859,9 @@ form {
 
     .simb {
         display: none;
+    }
+    .textinho{
+        font-size: 1rem;
     }
 
     .tipo {

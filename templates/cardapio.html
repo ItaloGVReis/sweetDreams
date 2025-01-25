@@ -69,7 +69,7 @@
 
         <!-- Reviews -->
         <section class="reviews">
-            <h2 class="bangers-regular" style="color: #be4f2a; text-shadow: 0 5px 7px  white;">Avaliações</h2>
+            <h2 class="bangers-regular destaque">Avaliações</h2>
             {% if reviews %}
 
             {% for review in reviews %}
@@ -82,7 +82,7 @@
             {% endfor %}
 
             {% else %}
-            <p class="bangers-regular" style="color: #be4f2a;">Não há avaliações para este produto.</p>
+            <p class="bangers-regular destaque">Não há avaliações para este produto.</p>
             {% endif %}
             <button class="add-review-btn bangers-regular" onclick="showModal()">Adicionar Avaliação</button>
         </section>
@@ -110,7 +110,7 @@
 
         <!-- Suggestions -->
         <section class="suggestions">
-            <h2 class="bangers-regular" style="color: #be4f2a; text-shadow: 0 5px 7px  white;">Sugestões</h2>
+            <h2 class="bangers-regular destaque">Sugestões</h2>
             <div class="carousel">
                 {% for foto in fotos %}
                 <a href="/cardapio?id={{foto.id}}"><img src="{{foto.image_url}}" alt="Sugestão {{foto.id}}"></a>
