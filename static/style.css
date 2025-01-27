@@ -1,7 +1,7 @@
 body {
     margin: 0 auto;
     background-color: #fff1d1;
-    background-image: url(/static/imagens/Design\ sem\ nome.png);
+    background-image: url(/static/imagens/bruh.png);
 }
 
 .head {
@@ -744,7 +744,9 @@ table th, table td {
     border: 1px solid #ddd;
     font-family: 'Bangers', cursive;
 }
-
+a{
+    text-decoration: none;
+}
 table th {
     background-color: #a10101;
 }
