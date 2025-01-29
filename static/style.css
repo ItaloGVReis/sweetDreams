@@ -714,7 +714,7 @@ form label {
     font-family: 'Bangers', cursive;
 }
 
-form input, form button {
+form input, form button , form select{
     font-family: 'Bangers', cursive;
     padding: 8px;
     border-radius: 4px;
@@ -903,6 +903,10 @@ td, th {
         width: 30rem;
     }
 
+    .tipos:hover{
+        transform: translateX(-10px);
+        box-shadow: 0 10px 17px #f8c560;
+    }
 
 }
 
