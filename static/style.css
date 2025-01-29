@@ -2,7 +2,7 @@ body {
     margin: 0 auto;
     /* background-color: rgb(255, 241, 209, 0.8);
     background-image: url(/static/imagens/bruh.png); */
-    background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url("/static/imagens/bruh.png");
+    background: linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.5)), url("/static/imagens/bruh.png");
 }
 
 .head {
