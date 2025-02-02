@@ -32,7 +32,7 @@ def allowed_file(filename):
 @app.route('/')
 def home():
     cursor = mysql.connection.cursor()
-    cursor.execute("SELECT id, nome, descricao, image_url, categoria FROM products1")
+    cursor.execute("SELECT id, nome, descricao, image_url, categoria,preco FROM products1")
     resultados = cursor.fetchall()
     produtos = [
         {
@@ -40,7 +40,8 @@ def home():
             'nome': product[1],
             'descricao': product[2],
             'image_url': product[3],
-            'categoria': product[4]
+            'categoria': product[4],
+            'preco': product[5]
         }
         for product in resultados
     ]
