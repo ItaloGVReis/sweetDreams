@@ -16,7 +16,7 @@ app.config['MYSQL_PASSWORD'] = os.getenv('MYSQLPASSWORD')
 app.config['MYSQL_DB'] = os.getenv('MYSQLDATABASE')
 app.config['MYSQL_PORT'] = int(os.getenv('MYSQLPORT'))
 
-UPLOAD_FOLDER = 'static/imagens'
+UPLOAD_FOLDER = os.path.join(os.getcwd(), 'static', 'imagens')  # Caminho absoluto
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
