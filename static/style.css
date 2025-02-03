@@ -354,7 +354,7 @@ body {
     align-items: center;
     padding: 1.25rem;
     /* 20px */
-
+    gap: 1.25rem;
     /* 20px */
     opacity: 1;
     /* Para transição de opacidade */
@@ -382,7 +382,6 @@ a {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 0.625rem;
     /* 10px */
 }
 
@@ -858,6 +857,7 @@ td, th {
         width: 300px;
         display: flex;
         flex-direction: column;
+        gap: 1px;
     }
 
 }
