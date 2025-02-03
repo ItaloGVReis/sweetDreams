@@ -33,7 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function fadeOut(element) {
-        element.style.transition = "opacity 0.5s ease";
         element.style.opacity = "0";
         setTimeout(() => {
             element.style.display = "none";
@@ -43,7 +42,6 @@ document.addEventListener("DOMContentLoaded", () => {
     function fadeIn(element) {
         element.style.display = "flex";
         setTimeout(() => {
-            element.style.transition = "opacity 0.5s ease";
             element.style.opacity = "1";
         }, 0);
     }
