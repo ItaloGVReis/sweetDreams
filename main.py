@@ -32,7 +32,7 @@ def allowed_file(filename):
 @app.route('/')
 def home():
     cursor = mysql.connection.cursor()
-    cursor.execute("SELECT id, nome, descricao, image_url, categoria,preco FROM products1")
+    cursor.execute("SELECT id, nome, descricao, image_url, categoria,preco,adicional2 FROM products1")
     resultados = cursor.fetchall()
     produtos = [
         {
@@ -41,7 +41,8 @@ def home():
             'descricao': product[2],
             'image_url': product[3],
             'categoria': product[4],
-            'preco': product[5]
+            'preco': product[5],
+            'adicional2': product[6]
         }
         for product in resultados
     ]
@@ -103,7 +104,7 @@ def cardapio():
     try:
         cursor = mysql.connection.cursor()
         cursor.execute("""
-            SELECT id, nome, descricao, image_url, image_url2, image_url3, image_url4, adicional, adicional2, preco 
+            SELECT id, nome, descricao, image_url, image_url2, image_url3, image_url4, adicional, preco 
             FROM products1 WHERE id = %s
         """, (id,))
         produto = cursor.fetchone()
@@ -118,7 +119,6 @@ def cardapio():
                 'image_url3': produto[5],
                 'image_url4': produto[6],
                 'adicional': produto[7],
-                'adicional2': produto[8],
                 'preco': produto[9]
             }
 
