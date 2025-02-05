@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function fadeOut(element) {
+
         element.style.opacity = "0";
         setTimeout(() => {
             element.style.display = "none";

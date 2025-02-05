@@ -119,7 +119,7 @@ def cardapio():
                 'image_url3': produto[5],
                 'image_url4': produto[6],
                 'adicional': produto[7],
-                'preco': produto[9]
+                'preco': produto[8]
             }
 
             # Busca as avaliações do produto
